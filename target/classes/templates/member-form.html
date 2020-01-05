@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<div th:replace="fragments/header :: header">...</div>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,20 +9,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Save Employee</title>
+    <title>Save Member</title>
 </head>
 
 <body>
 
 <div class="container">
 
-    <h3>Employee Directory</h3>
+    <h3>Member Directory</h3>
     <hr>
 
     <p class="h4 mb-4">Save Employee</p>
 
     <form action="#" th:action="@{/save}"
-          th:object="${contact}" method="POST">
+          th:object="${member}" method="POST">
 
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
@@ -41,7 +41,7 @@
     </form>
 
     <hr>
-    <a th:href="@{/list}">Back to Employees List</a>
+    <a th:href="@{/members/list}">Back to Employees List</a>
 
 </div>
 </body>
