@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
+
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class ="container-md">
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempContact : ${contact}" scope="col">
+            <td th:text="${tempContact.id}" />
+            <td th:text="${tempContact.name}" />
+            <td th:text="${tempContact.email}" />
+            <td th:text="${tempContact.phone}"/>
+
+<!--            <td>-->
+<!--                &lt;!&ndash; Add "update" button/link &ndash;&gt;-->
+<!--                <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"-->
+<!--                   class="btn btn-info btn-sm">-->
+<!--                    Update-->
+<!--                </a>-->
+
+<!--                &lt;!&ndash; Add "delete" button/link &ndash;&gt;-->
+<!--                <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"-->
+<!--                   class="btn btn-danger btn-sm"-->
+<!--                   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">-->
+<!--                    Delete-->
+<!--                </a>-->
+
+<!--            </td>-->
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <button th:href="@{/}" type="button" class="btn btn-outline-dark mb-3  btn-sm">Return</button>
+
+</div>
+</body>
+</html>

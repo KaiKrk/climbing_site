@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\Kaiqiang\Dev\apache-maven-3.6.0\repository" />
+        <option name="mavenHome" value="$USER_HOME$/Dev/apache-maven-3.6.0" />
+        <option name="userSettingsFile" value="C:\Users\Kaiqiang\Dev\apache-maven-3.6.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VaVpSH2DUZLJsXz1ebaSjxDXsV" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../32-thymeleafdemo-employees-list" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="oc.projet.p6.Dao" />
+      <recent name="oc.projet.p6.Controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\java\oc\projet\p6\Service" />
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="P6Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="p6" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="oc.projet.p6.P6Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="" />
+      <created>1577491375906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577491375906</updated>
+      <workItem from="1577491377941" duration="2019000" />
+      <workItem from="1577624071791" duration="7270000" />
+      <workItem from="1577704459493" duration="419000" />
+      <workItem from="1577705790609" duration="635000" />
+      <workItem from="1577789118988" duration="4191000" />
+      <workItem from="1577900997558" duration="1267000" />
+      <workItem from="1577909388342" duration="4033000" />
+      <workItem from="1578005175560" duration="1745000" />
+      <workItem from="1578049832732" duration="4272000" />
+      <workItem from="1578124983365" duration="2295000" />
+      <workItem from="1578149365889" duration="1776000" />
+      <workItem from="1578215286482" duration="2269000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
