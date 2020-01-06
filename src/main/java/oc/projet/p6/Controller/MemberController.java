@@ -12,41 +12,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/members")
 public class MemberController {
-//
-//
-//    // load employee data
-//
-//    private List<Contact> theContacts;
-//
-//    @PostConstruct
-//    private void loadData() {
-//
-//        // create employees
-//        Contact emp1 = new Contact(1, "Leslie", "Andrews", "leslie@luv2code.com");
-//        Contact emp2 = new Contact(2, "Emma", "Baumgarten", "emma@luv2code.com");
-//        Contact emp3 = new Contact(3, "Avani", "Gupta", "avani@luv2code.com");
-//
-//        // create the list
-//        theContacts = new ArrayList<>();
-//
-//        // add to the list
-//        theContacts.add(emp1);
-//        theContacts.add(emp2);
-//        theContacts.add(emp3);
-//
-//    }
-//
-//
-//    // add mapping for "/list"
-//
-//    @GetMapping("/list")
-//    public String listEmployees(Model theModel) {
-//
-//        // add to the spring model
-//        theModel.addAttribute("contact", theContacts);
-//
-//        return "contact";
-//    }
 
     @Autowired
     private MemberService memberService;
@@ -92,13 +57,13 @@ public class MemberController {
 
 
     @PostMapping("/save")
-    public String saveContact(@ModelAttribute("member") Member theMember) {
+    public String saveMember(@ModelAttribute("member") Member theMember) {
 
         // save the employee
         memberService.save(theMember);
 
         // use a redirect to prevent duplicate submissions
-        return "/members/list";
+        return "redirect:/members/list";
     }
 
 

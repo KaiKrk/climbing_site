@@ -12,7 +12,7 @@ public interface MemberService {
 	
 	public Member findById(int theId);
 
-	public void save(Member theEmployee);
+	public void save(Member theMember);
 
 	public void deleteById(int theId);
 	

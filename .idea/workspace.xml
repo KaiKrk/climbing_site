@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_10_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_9_Final.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/p6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/ContactController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Contact.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/P6Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/P6Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contactForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/ContactController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Contact.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/P6Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/P6Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/contactForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +114,7 @@
       <workItem from="1578124983365" duration="2295000" />
       <workItem from="1578149365889" duration="1776000" />
       <workItem from="1578215286482" duration="14345000" />
+      <workItem from="1578311497651" duration="3015000" />
     </task>
     <servers />
   </component>
@@ -143,7 +126,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
