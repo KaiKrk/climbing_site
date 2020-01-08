@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Topos</title>
+</head>
+<body>
+<div class ="container">
+    <div class="card">
+        <div class="card-body">
+
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nom du Topo</th>
+                    <th>Disponibilite</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="tempTopo : ${topos}" scope="col">
+                    <td th:text="${tempTopo.name}" />
+                    <td th:text="${tempTopo.available}" />
+                    </td>
+                    </td>
+
+
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/}"
+               class="btn btn-outline-dark mb-3  btn-sm">
+                Return
+            </a>
+        </div>
+    </div>
+</body>
+</html>

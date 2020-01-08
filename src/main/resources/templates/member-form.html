@@ -30,18 +30,27 @@
         <input type="text" th:field="*{name}"
                class="form-control mb-4 col-4" placeholder="name">
 
-        <input type="text" th:field="*{phone}"
-               class="form-control mb-4 col-4" placeholder="phone">
+        <input type="text" th:field="*{surname}"
+               class="form-control mb-4 col-4" placeholder="surname">
 
         <input type="text" th:field="*{email}"
                class="form-control mb-4 col-4" placeholder="Email">
+
+        <input type="text" th:field="*{password}"
+               class="form-control mb-4 col-4" placeholder="password">
+
+        <input type="text" th:field="*{country}"
+               class="form-control mb-4 col-4" placeholder="country">
+
+        <input type="text" th:field="*{pseudo}"
+               class="form-control mb-4 col-4" placeholder="Pseudo">
 
         <button type="submit" class="btn btn-info col-2">Save</button>
 
     </form>
 
     <hr>
-    <a th:href="@{/members/list}">Back to Employees List</a>
+    <a th:href="@{/members/list}">Retour dans la liste des Membres</a>
 
 </div>
 </body>

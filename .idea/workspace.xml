@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/identification-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/registration-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +61,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.54252875" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
@@ -114,7 +119,9 @@
       <workItem from="1578124983365" duration="2295000" />
       <workItem from="1578149365889" duration="1776000" />
       <workItem from="1578215286482" duration="14345000" />
-      <workItem from="1578311497651" duration="3015000" />
+      <workItem from="1578311497651" duration="3573000" />
+      <workItem from="1578402063252" duration="4727000" />
+      <workItem from="1578482470944" duration="6494000" />
     </task>
     <servers />
   </component>

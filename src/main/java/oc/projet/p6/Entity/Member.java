@@ -12,39 +12,59 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private int id;
 
     @Column(name = "name")
     private String name;
 
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "pseudo")
+    private String pseudo;
+
+    @Column(name = "country")
+    private String country;
+
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phone")
-    private String phone;
+    @Column(name = "password")
+    private String password;
 
-    public Member(int id, String name, String email, String phone) {
-        this.id = id;
+    public Member(String name, String surname, String pseudo, String country, String email, String password) {
         this.name = name;
+        this.surname = surname;
+        this.pseudo = pseudo;
+        this.country = country;
         this.email = email;
-        this.phone = phone;
+        this.password = password;
     }
 
     public Member() {
+
     }
 
-    public Member(String name, String email, String phone) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", pseudo='" + pseudo + '\'' +
+                ", country='" + country + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -56,6 +76,30 @@ public class Member {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -64,21 +108,11 @@ public class Member {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

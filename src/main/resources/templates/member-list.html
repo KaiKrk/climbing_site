@@ -22,10 +22,12 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
                     <th>Email</th>
-                    <th>Phone</th>
+                    <th>Pays</th>
+                    <th>Pseudo</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -34,8 +36,10 @@
                 <tr th:each="tempMember : ${members}" scope="col">
                     <td th:text="${tempMember.id}" />
                     <td th:text="${tempMember.name}" />
-                    <td th:text="${tempMember.phone}"/>
+                    <td th:text="${tempMember.surname}"/>
                     <td th:text="${tempMember.email}" />
+                    <td th:text="${tempMember.country}" />
+                    <td th:text="${tempMember.pseudo}" />
 
                     <td>
                         <!-- Add "update" button/link -->
