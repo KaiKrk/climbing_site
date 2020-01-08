@@ -2,17 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/identification-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/registration-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/ReservationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/SectorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/TopoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/WayRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Reservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Sector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Topo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Way.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/CommentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/MemberRepository.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -47,7 +52,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1VaVpSH2DUZLJsXz1ebaSjxDXsV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -121,7 +128,7 @@
       <workItem from="1578215286482" duration="14345000" />
       <workItem from="1578311497651" duration="3573000" />
       <workItem from="1578402063252" duration="4727000" />
-      <workItem from="1578482470944" duration="6494000" />
+      <workItem from="1578482470944" duration="14836000" />
     </task>
     <servers />
   </component>
