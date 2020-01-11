@@ -33,17 +33,15 @@ public class TopoController {
     public String listTopo(Model theModel){
 
         List<Topo> theTopo = topoService.findAll();
-        theModel.addAttribute("topo", theTopo);
+        theModel.addAttribute("topos", theTopo);
+        System.out.println(theTopo + "AAAAA");
 
-
-        return null;
+        return "Topo/topo-list";
     }
-
+    @GetMapping("/detail")
     public String topoById (@RequestParam("topoId")int theId, Model theModel){
         Topo theTopo = topoService.findById(theId);
-       // List<Sector> theSectors = sectorService.fi;              find by id of topo_id
-       // List<Way> theWays = wayService.findById()                 find by id of sector_id
-      //  List<Comment> theComment = commentService.findById()
-        return null;
+        theModel.addAttribute("topos",theTopo);
+        return "/Topo/topo_list"; //form of the page showing the list of topos
     }
 }

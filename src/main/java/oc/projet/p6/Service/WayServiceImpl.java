@@ -13,10 +13,6 @@ public class WayServiceImpl implements WayService {
     @Autowired
     private WayRepository wayRepository;
 
-    @Override
-    public List<Way> findAll() {
-        return null;
-    }
 
     @Override
     public Way findById(int theId) {

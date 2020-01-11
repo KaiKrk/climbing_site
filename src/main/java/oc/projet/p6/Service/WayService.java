@@ -5,7 +5,6 @@ import oc.projet.p6.Entity.Way;
 import java.util.List;
 
 public interface WayService {
-    public List<Way> findAll();
 
     public Way findById(int theId);
 

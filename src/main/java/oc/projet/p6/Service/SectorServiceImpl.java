@@ -14,10 +14,6 @@ public class SectorServiceImpl implements SectorService{
     @Autowired
     private SectorRepository sectorRepository;
 
-    @Override
-    public List<Sector> findAll() {
-        return sectorRepository.findAll();
-    }
 
     @Override
     public Sector findById(int theId) {
