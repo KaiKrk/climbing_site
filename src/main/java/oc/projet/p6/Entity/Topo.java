@@ -29,7 +29,10 @@ public class Topo {
     @Column(name = "user_id")
     private int user_id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "topo")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="sector",
+            joinColumns=@JoinColumn(name="topo_id", referencedColumnName="topo_id"),
+            inverseJoinColumns = @JoinColumn(name = "sector_id", referencedColumnName = "sector_id"))
     private List<Sector> sectors;
 
     public List<Sector> getSectors() {

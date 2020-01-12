@@ -25,7 +25,7 @@ public class Way {
 //    private int sector_id;
 
     @ManyToOne
-    @JoinColumn(name = "sector_id", nullable = false)
+    @JoinColumn(name = "sector_id",referencedColumnName="sector_id", nullable = false)
     private Sector sector;
 
     public Way() {

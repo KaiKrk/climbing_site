@@ -26,11 +26,14 @@ public class Sector {
 //    @Column(name = "topo_id")
 //    private int topo_id;
 
-    @ManyToOne
-    @JoinColumn(name = "topo_id" ,nullable=false)
-    private Topo topo;
+//    @ManyToOne
+//    @JoinColumn(name = "topo_id" ,referencedColumnName="topo_id",nullable=false)
+//    private Topo topo;
 
-    @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER, mappedBy = "sector")
+    @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    @JoinTable(name="way",
+            joinColumns=@JoinColumn(name="sector_id", referencedColumnName="sector_id"),
+            inverseJoinColumns = @JoinColumn(name = "way_id", referencedColumnName = "way_id"))
     private List<Way> ways;
 
     public int getSector_id() {
