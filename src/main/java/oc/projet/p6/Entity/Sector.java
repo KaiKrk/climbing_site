@@ -58,4 +58,13 @@ public class Sector {
         this.ways = ways;
     }
 
+    @Override
+    public String toString() {
+        return "Sector{" +
+                "sector_id=" + sector_id +
+                ", sector_name='" + sector_name + '\'' +
+                ", sector_status='" + sector_status + '\'' +
+                ", ways=" + ways +
+                '}';
+    }
 }

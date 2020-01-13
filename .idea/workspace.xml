@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/TopoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/TopoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Sector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Sector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Topo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Topo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Way.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Way.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/TopoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/TopoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Sector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Sector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Topo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Topo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Way.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Way.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Topo/topo-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Topo/topo-detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +123,7 @@
       <workItem from="1578738717937" duration="899000" />
       <workItem from="1578764009414" duration="11865000" />
       <workItem from="1578836512527" duration="12072000" />
-      <workItem from="1578867079419" duration="5325000" />
+      <workItem from="1578867079419" duration="6280000" />
     </task>
     <servers />
   </component>
