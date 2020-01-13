@@ -22,10 +22,6 @@ public class Sector {
     @Column(name = "sector_status")
     private String sector_status;
 
-
-//    @Column(name = "topo_id")
-//    private int topo_id;
-
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="sector_id")
     private List<Way> ways;
@@ -54,20 +50,12 @@ public class Sector {
         this.sector_status = sector_status;
     }
 
-//    public int getTopo_id() {
-//        return topo_id;
-//    }
-//
-//    public void setTopo_id(int topo_id) {
-//        this.topo_id = topo_id;
-//    }
+    public List<Way> getWays() {
+        return ways;
+    }
 
-//    public List<Way> getWays() {
-//        return ways;
-//    }
-//
-//    public void setWays(List<Way> ways) {
-//        this.ways = ways;
-//    }
+    public void setWays(List<Way> ways) {
+        this.ways = ways;
+    }
 
 }

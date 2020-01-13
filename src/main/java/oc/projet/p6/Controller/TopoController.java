@@ -43,6 +43,10 @@ public class TopoController {
     public String topoById (@RequestParam("topoId")int theId, Model theModel){
         Topo theTopo = topoService.findById(theId);
         theModel.addAttribute("topos",theTopo);
+        theModel.addAttribute("sectors", theTopo.getSectors());
+        System.out.println(theTopo.toString());
+        System.out.println("Et");
+        System.out.println(theTopo.getSectors().toString());
         return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
 }

@@ -33,13 +33,13 @@ public class Topo {
     @JoinColumn(name="topo_id")
     private List<Sector> sectors;
 
-//    public List<Sector> getSectors() {
-//        return sectors;
-//    }
-//
-//    public void setSectors(List<Sector> sectors) {
-//        this.sectors = sectors;
-//    }
+    public List<Sector> getSectors() {
+        return sectors;
+    }
+
+    public void setSectors(List<Sector> sectors) {
+        this.sectors = sectors;
+    }
 
     public Topo(String name_topo, String region, String country, String topo_status, int user_id) {
         this.name_topo = name_topo;

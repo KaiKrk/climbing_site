@@ -21,11 +21,6 @@ public class Way {
     @Column(name = "number_points")
     private int points;
 
-//    @Column(name = "sector_id")
-//    private int sector_id;
-
-//    private Sector sector;
-
     public Way() {
     }
 
@@ -33,8 +28,6 @@ public class Way {
         this.name_way = name_way;
         this.difficulty = difficulty;
         this.points = points;
-//        this.sector_id = sector_id;
-//        this.sector = sector;
     }
 
     public int getWay_id() {
