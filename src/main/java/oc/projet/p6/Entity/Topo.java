@@ -29,19 +29,17 @@ public class Topo {
     @Column(name = "user_id")
     private int user_id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name="sector",
-            joinColumns=@JoinColumn(name="topo_id", referencedColumnName="topo_id"),
-            inverseJoinColumns = @JoinColumn(name = "sector_id", referencedColumnName = "sector_id"))
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name="topo_id")
     private List<Sector> sectors;
 
-    public List<Sector> getSectors() {
-        return sectors;
-    }
-
-    public void setSectors(List<Sector> sectors) {
-        this.sectors = sectors;
-    }
+//    public List<Sector> getSectors() {
+//        return sectors;
+//    }
+//
+//    public void setSectors(List<Sector> sectors) {
+//        this.sectors = sectors;
+//    }
 
     public Topo(String name_topo, String region, String country, String topo_status, int user_id) {
         this.name_topo = name_topo;
@@ -101,4 +99,18 @@ public class Topo {
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
+
+    @Override
+    public String toString() {
+        return "Topo{" +
+                "topo_id=" + topo_id +
+                ", name_topo='" + name_topo + '\'' +
+                ", region='" + region + '\'' +
+                ", country='" + country + '\'' +
+                ", topo_status='" + topo_status + '\'' +
+                ", user_id=" + user_id +
+                ", sectors=" + sectors +
+                '}';
+
+}
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org">
 <div th:replace="fragments/header :: header">...</div>
 <head>
     <meta charset="UTF-8">
@@ -18,19 +18,21 @@
                 <tr>
                     <th>Nom du Topo</th>
                     <th>Disponibilite</th>
-
+                    <th>Region</th>
+                    <th>Country</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <tr th:each="tempTopo : ${topos}" scope="col">
-                    <td th:text="${tempTopo.name}" />
-                    <td th:text="${tempTopo.available}" />
-                    </td>
-                    </td>
+                    <td th:text="${tempTopo.name_topo}" />
+                    <td th:text="${tempTopo.topo_status}" />
+                    <td th:text="${tempTopo.region}"/>
+                    <td th:text="${tempTopo.country}"/>
 
 
                 </tr>
+
                 </tbody>
             </table>
 
@@ -44,9 +46,9 @@
                 </thead>
 
                 <tbody>
-                <tr th:each="tempSector : ${sector}" scope="col">
-                    <td th:text="${tempSector.name}" />
-                    <td th:text="${tempSector.available}" />
+                <tr th:each="tempSector : ${topo.sectors}" scope="col">
+                    <td th:text="${tempSector.sector_name}" />
+                    <td th:text="${tempSector.sector_status}" />
                     </td>
                     </td>
 

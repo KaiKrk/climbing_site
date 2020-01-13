@@ -19,6 +19,7 @@
                     <th>Disponibilite</th>
                     <th>Region</th>
                     <th>Country</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,13 @@
                     <td th:text="${tempTopo.region}"/>
                     <td th:text="${tempTopo.country}"/>
 
+                    <td>
+                        <!-- Add "update" button/link -->
+                        <a th:href="@{/topo/detail(topoId=${tempTopo.topo_id})}"
+                           class="btn btn-info btn-sm">
+                            Detail
+
+                        </a>
                 </tr>
 
                 </tbody>

@@ -24,9 +24,7 @@ public class Way {
 //    @Column(name = "sector_id")
 //    private int sector_id;
 
-    @ManyToOne
-    @JoinColumn(name = "sector_id",referencedColumnName="sector_id", nullable = false)
-    private Sector sector;
+//    private Sector sector;
 
     public Way() {
     }
@@ -36,7 +34,7 @@ public class Way {
         this.difficulty = difficulty;
         this.points = points;
 //        this.sector_id = sector_id;
-        this.sector = sector;
+//        this.sector = sector;
     }
 
     public int getWay_id() {
@@ -79,11 +77,11 @@ public class Way {
 //        this.sector_id = sector_id;
 //    }
 
-    public Sector getSector() {
-        return sector;
-    }
-
-    public void setSector(Sector sector) {
-        this.sector = sector;
-    }
+//    public Sector getSector() {
+//        return sector;
+//    }
+//
+//    public void setSector(Sector sector) {
+//        this.sector = sector;
+//    }
 }

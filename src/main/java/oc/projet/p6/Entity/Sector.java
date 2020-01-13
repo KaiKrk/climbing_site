@@ -26,14 +26,8 @@ public class Sector {
 //    @Column(name = "topo_id")
 //    private int topo_id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "topo_id" ,referencedColumnName="topo_id",nullable=false)
-//    private Topo topo;
-
-    @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
-    @JoinTable(name="way",
-            joinColumns=@JoinColumn(name="sector_id", referencedColumnName="sector_id"),
-            inverseJoinColumns = @JoinColumn(name = "way_id", referencedColumnName = "way_id"))
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name="sector_id")
     private List<Way> ways;
 
     public int getSector_id() {
@@ -68,12 +62,12 @@ public class Sector {
 //        this.topo_id = topo_id;
 //    }
 
-    public List<Way> getWays() {
-        return ways;
-    }
-
-    public void setWays(List<Way> ways) {
-        this.ways = ways;
-    }
+//    public List<Way> getWays() {
+//        return ways;
+//    }
+//
+//    public void setWays(List<Way> ways) {
+//        this.ways = ways;
+//    }
 
 }
