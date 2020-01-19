@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<html xmlns:th="www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -18,7 +19,8 @@
                 <a class="nav-item nav-link" href="#">Sites D'Escalade</a>
                 <a class="nav-item nav-link" href="#">Reservation</a>
                 <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                <button type="button" class="btn btn-info" th:href="@{/}">Connexion</button>
+                <a class="btn btn-info" sec:authorize="isAnonymous()" href="/login">Connexion</a>
+                <a class="btn btn-info" sec:authorize="isAuthenticated()" th:href="@{/}">Deconnexion</a>
 
             </div>
         </div>
