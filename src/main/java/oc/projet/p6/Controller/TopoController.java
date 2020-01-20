@@ -49,4 +49,18 @@ public class TopoController {
         System.out.println(theTopo.getSectors().toString());
         return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
+    @GetMapping("/add")
+    public String addTopo(Model theModel){
+
+        Topo theTopo = new Topo();
+        theModel.addAttribute("topo",theTopo);
+
+        Sector theSector = new Sector();
+        theModel.addAttribute("sector", theSector);
+
+        Way theWay = new Way();
+        theModel.addAttribute("way", theWay);
+
+        return "topo-form";
+    }
 }

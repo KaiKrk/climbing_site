@@ -22,7 +22,7 @@
                     <th>Disponibilite</th>
                     <th>Region</th>
                     <th>Country</th>
-                    <th>Action</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -31,8 +31,6 @@
                     <td th:text="${tempTopo.topo_status}" />
                     <td th:text="${tempTopo.region}"/>
                     <td th:text="${tempTopo.country}"/>
-
-
                 </tr>
 
                 </tbody>
@@ -43,6 +41,7 @@
                 <tr>
                     <th>Nom du Secteur</th>
                     <th>Disponibilite</th>
+                    <th>Action</th>
 
                 </tr>
                 </thead>
@@ -51,31 +50,18 @@
                 <tr th:each="tempSector : ${sectors}" scope="col">
                     <td th:text="${tempSector.sector_name}" />
                     <td th:text="${tempSector.sector_status}" />
+                    <td> <a th:href="@{/sectors/detail(SectorId=${tempSector.sector_id})}"
+                       class="btn btn-info btn-sm">
+                        Detail
+                    </a>
                     </td>
-                    </td>
+            </td>
 
 
-                </tr>
-                </tbody>
+            </tr>
+            </tbody>
             </table>
 
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th>Nom de la Voie</th>
-                    <th>Difficulte</th>
-                    <th>Points</th>
-
-                </tr>
-                </thead>
-
-                <tbody>
-
-
-
-                </tr>
-                </tbody>
-            </table>
 
             <table class="table">
                 <thead class="thead-dark">
@@ -97,8 +83,10 @@
                 </tr>
                 </tbody>
             </table>
-
+            <a class="btn btn-info" onclick="history.back()">Retour</a>
         </div>
     </div>
+</div>
+
 </body>
 </html>

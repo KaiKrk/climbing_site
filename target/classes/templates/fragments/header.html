@@ -8,7 +8,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;" th:fragment="header">
-        <a class="navbar-brand" href="#">Les Amis de L'escalade</a>
+        <a class="navbar-brand" href="/welcome">Les Amis de L'escalade</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,11 +16,10 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" th:href="@{/members/list}">Membres</a>
-                <a class="nav-item nav-link" href="#">Sites D'Escalade</a>
+                <a class="nav-item nav-link" href="/topo/list">Sites D'Escalade</a>
                 <a class="nav-item nav-link" href="#">Reservation</a>
-                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 <a class="btn btn-info" sec:authorize="isAnonymous()" href="/login">Connexion</a>
-                <a class="btn btn-info" sec:authorize="isAuthenticated()" th:href="@{/}">Deconnexion</a>
+                <a class="btn btn-info" sec:authorize="isAuthenticated()" th:href="@{/logout}">Deconnexion</a>
 
             </div>
         </div>

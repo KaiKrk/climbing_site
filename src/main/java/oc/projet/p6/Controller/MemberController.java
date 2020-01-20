@@ -43,7 +43,6 @@ public class MemberController {
 
     @GetMapping("/register")
     public String showFormForAdd(Model theModel) {
-        System.out.println("sa");
         // create model attribute to bind form data
         Member theMember = new Member();
 

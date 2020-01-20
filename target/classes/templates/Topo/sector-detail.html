@@ -1,0 +1,60 @@
+<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Detail du Topo</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class ="container">
+    <div class="card">
+        <div class="card-body">
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Nom du Secteur</th>
+        <th>Disponibilite</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="tempSector : ${sectors}" scope="col">
+        <td th:text="${tempSector.sector_name}" />
+        <td th:text="${tempSector.sector_status}" />
+        </td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Nom de la Voie</th>
+        <th>Difficulte</th>
+        <th>Points</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="tempWay : ${ways}" scope="col">
+        <td th:text="${tempWay.name_way}" />
+        <td th:text="${tempWay.difficulty}" />
+        <td th:text="${tempWay.points}" />
+        </td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+            <a class="btn btn-info" onclick="history.back()">Retour</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
