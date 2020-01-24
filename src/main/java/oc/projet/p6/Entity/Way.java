@@ -1,7 +1,5 @@
 package oc.projet.p6.Entity;
 
-import org.springframework.context.annotation.EnableMBeanExport;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,10 +8,10 @@ public class Way {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int way_id;
+    private int wayId;
 
     @Column(name = "name")
-    private String name_way;
+    private String nameWay;
 
     @Column(name = "cotation")
     private String difficulty;
@@ -21,29 +19,40 @@ public class Way {
     @Column(name = "number_points")
     private int points;
 
+    @Column(name = "sector_id")
+    private int sectorId;
+
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
+    }
+
     public Way() {
     }
 
-    public Way(String name_way, String difficulty, int points, int sector_id, Sector sector) {
-        this.name_way = name_way;
+    public Way(String nameWay, String difficulty, int points, int sectorId, Sector sector) {
+        this.nameWay = nameWay;
         this.difficulty = difficulty;
         this.points = points;
     }
 
-    public int getWay_id() {
-        return way_id;
+    public int getWayId() {
+        return wayId;
     }
 
-    public void setWay_id(int way_id) {
-        this.way_id = way_id;
+    public void setWayId(int wayId) {
+        this.wayId = wayId;
     }
 
-    public String getName_way() {
-        return name_way;
+    public String getNameWay() {
+        return nameWay;
     }
 
-    public void setName_way(String name_way) {
-        this.name_way = name_way;
+    public void setNameWay(String nameWay) {
+        this.nameWay = nameWay;
     }
 
     public String getDifficulty() {
@@ -62,19 +71,14 @@ public class Way {
         this.points = points;
     }
 
-//    public int getSector_id() {
-//        return sector_id;
-//    }
-//
-//    public void setSector_id(int sector_id) {
-//        this.sector_id = sector_id;
-//    }
-
-//    public Sector getSector() {
-//        return sector;
-//    }
-//
-//    public void setSector(Sector sector) {
-//        this.sector = sector;
-//    }
+    @Override
+    public String toString() {
+        return "Way{" +
+                "way_id=" + wayId +
+                ", name_way='" + nameWay + '\'' +
+                ", difficulty='" + difficulty + '\'' +
+                ", points=" + points +
+                ", sector_id=" + sectorId +
+                '}';
+    }
 }

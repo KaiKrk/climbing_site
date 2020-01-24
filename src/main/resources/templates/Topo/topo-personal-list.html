@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns:th="www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div th:replace="fragments/header :: header">...</div>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -12,8 +12,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div class ="container">
     <div class="card">
         <div class="card-body">
-<!--            <a class="btn btn-info" sec:authorize="isAnonymous()" href="/topo/add">Ajouter un Topo</a>-->
-             <a class="btn btn-info" sec:authorize="isAnonymous()" href="/adding/topo">Ajouter un Topo</a>
+            <!--            <a class="btn btn-info" sec:authorize="isAnonymous()" href="/topo/add">Ajouter un Topo</a>-->
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -38,14 +37,22 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
                             Detail
 
                         </a>
+
                 </tr>
 
                 </tbody>
             </table>
-            <a th:href="@{/}"
-               class="btn btn-outline-dark mb-3  btn-sm">
+            <div class="row form-group justify-content-around">
+            <a th:href="@{/home}"
+               class="btn btn-outline-dark mb-3  ">
                 Return
             </a>
+            <a th:href="@{/topo/add}"
+               class="btn btn-outline-dark mb-3">
+                Ajouter Un Topo
+
+            </a>
+            </div>
         </div>
     </div>
 

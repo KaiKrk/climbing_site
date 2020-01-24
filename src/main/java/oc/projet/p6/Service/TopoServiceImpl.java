@@ -1,24 +1,21 @@
 package oc.projet.p6.Service;
 
-import oc.projet.p6.Dao.CommentRepository;
-import oc.projet.p6.Dao.SectorRepository;
 import oc.projet.p6.Dao.TopoRepository;
-import oc.projet.p6.Dao.WayRepository;
 import oc.projet.p6.Entity.*;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import javax.transaction.Transactional;
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 @Service
 public class TopoServiceImpl implements TopoService {
 
     @Autowired
-    private TopoRepository topoRepository;
+    EntityManager entityManager;
 
+    @Autowired
+    private TopoRepository topoRepository;
     @Override
     public List<Topo> findAll() {
         return topoRepository.findAll();
@@ -28,11 +25,7 @@ public class TopoServiceImpl implements TopoService {
     @Override
     public Topo findById(int theId) {
         Optional<Topo> resultTopo = topoRepository.findById(theId);
-
-
         Topo theTopo = null;
-
-
         if (resultTopo.isPresent()) {
             theTopo = resultTopo.get();
         }
@@ -40,7 +33,6 @@ public class TopoServiceImpl implements TopoService {
             // we didn't find the employee
             throw new RuntimeException("Did not find member id - " + theId);
         }
-
         return theTopo;
     }
 
@@ -53,4 +45,17 @@ public class TopoServiceImpl implements TopoService {
     public void deleteById(int theId) { topoRepository.deleteById(theId);
 
     }
+
+//    @Override
+//    public List<Topo> findByUser(int userId) {
+//        Query results =  entityManager.createQuery("From Topo t where t.user_id = '" + userId +"'");
+//        List topoResults = results.getResultList();
+//        List<Topo> topos = topoResults;
+//        System.out.println(results);
+//        return topos;
+//    }
+    @Override
+    public List<Topo> findAllByUserId(int userId){ return topoRepository.findAllByUserId(userId);
+
+    };
 }

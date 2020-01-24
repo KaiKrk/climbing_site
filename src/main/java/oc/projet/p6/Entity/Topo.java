@@ -1,7 +1,5 @@
 package oc.projet.p6.Entity;
 
-import lombok.extern.apachecommons.CommonsLog;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,10 +10,10 @@ public class Topo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "topo_id")
-    private int topo_id;
+    private int topoId;
 
     @Column(name = "name_topo")
-    private String name_topo;
+    private String nameTopo;
 
     @Column(name = "region")
     private String region;
@@ -24,10 +22,10 @@ public class Topo {
     private String country;
 
     @Column(name = "topo_status")
-    private String topo_status;
+    private String topoStatus;
 
     @Column(name = "user_id")
-    private int user_id;
+    private int userId;
 
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="topo_id")
@@ -41,31 +39,38 @@ public class Topo {
         this.sectors = sectors;
     }
 
-    public Topo(String name_topo, String region, String country, String topo_status, int user_id) {
-        this.name_topo = name_topo;
+    public Topo(String nameTopo, String region, String country, String topoStatus, int user_id) {
+        this.nameTopo = nameTopo;
         this.region = region;
         this.country = country;
-        this.topo_status = topo_status;
-        this.user_id = user_id;
+        this.topoStatus = topoStatus;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Topo() {
     }
 
-    public int getTopo_id() {
-        return topo_id;
+    public int getTopoId() {
+        return topoId;
     }
 
-    public void setTopo_id(int topo_id) {
-        this.topo_id = topo_id;
+    public void setTopoId(int topoId) {
+        this.topoId = topoId;
     }
 
-    public String getName_topo() {
-        return name_topo;
+    public String getNameTopo() {
+        return nameTopo;
     }
 
-    public void setName_topo(String name_topo) {
-        this.name_topo = name_topo;
+    public void setNameTopo(String nameTopo) {
+        this.nameTopo = nameTopo;
     }
 
     public String getRegion() {
@@ -84,33 +89,25 @@ public class Topo {
         this.country = country;
     }
 
-    public String getTopo_status() {
-        return topo_status;
+    public String getTopoStatus() {
+        return topoStatus;
     }
 
-    public void setTopo_status(String topo_status) {
-        this.topo_status = topo_status;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setTopoStatus(String topoStatus) {
+        this.topoStatus = topoStatus;
     }
 
     @Override
     public String toString() {
         return "Topo{" +
-                "topo_id=" + topo_id +
-                ", name_topo='" + name_topo + '\'' +
+                "topo_id=" + topoId +
+                ", name_topo='" + nameTopo + '\'' +
                 ", region='" + region + '\'' +
                 ", country='" + country + '\'' +
-                ", topo_status='" + topo_status + '\'' +
-                ", user_id=" + user_id +
+                ", topo_status='" + topoStatus + '\'' +
+                ", userId=" + userId +
                 ", sectors=" + sectors +
                 '}';
+    }
+}
 
-}
-}

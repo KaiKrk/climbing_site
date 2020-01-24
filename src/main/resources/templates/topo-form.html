@@ -21,41 +21,34 @@
             <div class="card-body">
                 <hr>
 
-                <form th:action="@{/members/save}"
+                <form th:action="@{/topo/save}"
                       th:object="${topo}" method="POST">
 
                     <!-- Add hidden form field to handle update -->
-                    <input type="hidden" th:field="*{topo_id}" />
+                    <input type="hidden" th:field="*{topoId}" />
 
-                    <input type="text" th:field="*{name_topo}"
+                    <label for="nameTopo">Nom du Topo</label>
+                    <input type="text" th:field="*{nameTopo}" id="nameTopo"
                            class="form-control mb-4 col-4" placeholder="name">
 
-                    <input type="text" th:field="*{country}"
+                    <label for="country">Pays</label>
+                    <input type="text" th:field="*{country}" id="country"
                            class="form-control mb-4 col-4" placeholder="country">
 
-<!--                    <input type="text" th:field="*{sectors}"-->
-<!--                           class="form-control mb-4 col-4" placeholder="Secteur">-->
+                    <label for="region">Region</label>
+                    <input type="text" th:field="*{region}" id="region"
+                           class="form-control mb-4 col-4" placeholder="region">
 
+                    <label for="statut">Statut du Topo</label>
+                    <input type="text" th:field="*{topoStatus}" id="statut"
+                           class="form-control mb-4 col-4" placeholder="statut">
 
-<!--                    <button type="submit" class="btn btn-info col-2">Save</button>-->
-
-
-                </form>
-
-                <form th:action="@{/sectors/save}"
-                      th:object="${sector}" method="POST">
-
-                </form>
-
-                </form>
-
-                <form th:action="@{/ways/save}"
-                      th:object="${way}" method="POST">
+                    <button type="submit" class="btn btn-info col-2">Save</button>
 
                 </form>
 
                 <hr>
-                <a th:href="@{/welcome}">Retour page d'accueil</a>
+                <a onclick="history.back()" class="btn btn-dark col-2"> Retour </a>
 
             </div>
         </div>

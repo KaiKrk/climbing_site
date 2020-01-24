@@ -13,8 +13,6 @@ import java.util.Optional;
 public class SectorServiceImpl implements SectorService{
     @Autowired
     private SectorRepository sectorRepository;
-
-
     @Override
     public Sector findById(int theId) {
         Optional<Sector> result = sectorRepository.findById(theId);

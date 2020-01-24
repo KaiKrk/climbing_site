@@ -18,6 +18,7 @@
                 <a class="nav-item nav-link" th:href="@{/members/list}">Membres</a>
                 <a class="nav-item nav-link" href="/topo/list">Sites D'Escalade</a>
                 <a class="nav-item nav-link" href="#">Reservation</a>
+                <a class="nav-item nav-link" sec:authorize="isAuthenticated()" th:href="@{/home}">Mon Espace Personnel</a>
                 <a class="btn btn-info" sec:authorize="isAnonymous()" href="/login">Connexion</a>
                 <a class="btn btn-info" sec:authorize="isAuthenticated()" th:href="@{/logout}">Deconnexion</a>
 

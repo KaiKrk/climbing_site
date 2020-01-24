@@ -22,8 +22,8 @@
 
     <tbody>
     <tr th:each="tempSector : ${sectors}" scope="col">
-        <td th:text="${tempSector.sector_name}" />
-        <td th:text="${tempSector.sector_status}" />
+        <td th:text="${tempSector.sectorName}" />
+        <td th:text="${tempSector.sectorStatus}" />
         </td>
         </td>
     </tr>
@@ -43,7 +43,7 @@
     <tbody>
 
     <tr th:each="tempWay : ${ways}" scope="col">
-        <td th:text="${tempWay.name_way}" />
+        <td th:text="${tempWay.nameWay}" />
         <td th:text="${tempWay.difficulty}" />
         <td th:text="${tempWay.points}" />
         </td>
@@ -51,7 +51,16 @@
     </tr>
     </tbody>
 </table>
-            <a class="btn btn-info" onclick="history.back()">Retour</a>
+            <div class="row form-group justify-content-around">
+                <a class="btn btn-outline-dark mb-3  " onclick="history.back()">
+                    Return
+                </a>
+                <a sec th:href="@{/ways/add(sectorId= ${param.sectorId})}"
+                   class="btn btn-outline-dark mb-3">
+                    Ajouter Une Voie
+
+                </a>
+            </div>
         </div>
     </div>
 </div>

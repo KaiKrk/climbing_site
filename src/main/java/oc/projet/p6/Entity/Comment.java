@@ -10,17 +10,17 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int comment_id;
+    private int commentId;
 
     @Column(name = "comment")
     private String comment;
 
     @Column(name = "member_id")
-    private int member_id;
+    private int memberId;
 
     @Column(name = "topo_id")
-    private int topo_id;
+    private int topoId;
 
     @Column(name = "comment_status")
-    private String comment_status;
+    private String commentStatus;
 }

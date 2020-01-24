@@ -15,5 +15,7 @@ public interface MemberService {
 	public void save(Member theMember);
 
 	public void deleteById(int theId);
+
+	public Member findByName();
 	
 }

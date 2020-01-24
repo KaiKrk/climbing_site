@@ -8,55 +8,55 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reservation_id;
+    private int reservationId;
 
     @Column(name = "reservation_status")
-    private String reservation_status;
+    private String reservationStatus;
 
     @Column(name = "user_id")
-    private int user_id;
+    private int userId;
 
     @Column(name = "topo_id")
-    private int topo_id;
+    private int topoId;
 
     public Reservation() {
     }
 
-    public Reservation(String reservation_status, int user_id, int topo_id) {
-        this.reservation_status = reservation_status;
-        this.user_id = user_id;
-        this.topo_id = topo_id;
+    public Reservation(String reservationStatus, int userId, int topoId) {
+        this.reservationStatus = reservationStatus;
+        this.userId = userId;
+        this.topoId = topoId;
     }
 
-    public int getReservation_id() {
-        return reservation_id;
+    public int getReservationId() {
+        return reservationId;
     }
 
-    public void setReservation_id(int reservation_id) {
-        this.reservation_id = reservation_id;
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
-    public String getReservation_status() {
-        return reservation_status;
+    public String getReservationStatus() {
+        return reservationStatus;
     }
 
-    public void setReservation_status(String reservation_status) {
-        this.reservation_status = reservation_status;
+    public void setReservationStatus(String reservationStatus) {
+        this.reservationStatus = reservationStatus;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getTopo_id() {
-        return topo_id;
+    public int getTopoId() {
+        return topoId;
     }
 
-    public void setTopo_id(int topo_id) {
-        this.topo_id = topo_id;
+    public void setTopoId(int topoId) {
+        this.topoId = topoId;
     }
 }

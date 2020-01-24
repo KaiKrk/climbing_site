@@ -12,7 +12,8 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div class ="container">
     <div class="card">
         <div class="card-body">
-            <a class="btn btn-info" sec:authorize="isAnonymous()" href="/topo/add">Ajouter un Topo</a>
+<!--            <a class="btn btn-info" sec:authorize="isAnonymous()" href="/topo/add">Ajouter un Topo</a>-->
+             <a class="btn btn-info" sec:authorize="isAnonymous()" href="/adding/topo">Ajouter un Topo</a>
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -25,14 +26,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
                 </thead>
                 <tbody>
                 <tr th:each="tempTopo : ${topos}" scope="col">
-                    <td th:text="${tempTopo.name_topo}" />
-                    <td th:text="${tempTopo.topo_status}" />
+                    <td th:text="${tempTopo.nameTopo}" />
+                    <td th:text="${tempTopo.topoStatus}" />
                     <td th:text="${tempTopo.region}"/>
                     <td th:text="${tempTopo.country}"/>
 
                     <td>
                         <!-- Add "update" button/link -->
-                        <a th:href="@{/topo/detail(topoId=${tempTopo.topo_id})}"
+                        <a th:href="@{/topo/detail(topoId=${tempTopo.topoId})}"
                            class="btn btn-info btn-sm">
                             Detail
 

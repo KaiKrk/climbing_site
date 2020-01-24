@@ -27,22 +27,28 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
 
-        <input type="text" th:field="*{name}"
+        <label for="name">Nom</label>
+        <input type="text" th:field="*{name}" id="name"
                class="form-control mb-4 col-4" placeholder="name">
 
-        <input type="text" th:field="*{surname}"
+        <label for="surname">Prenom</label>
+        <input type="text" th:field="*{surname}" id="surname"
                class="form-control mb-4 col-4" placeholder="surname">
 
-        <input type="text" th:field="*{email}"
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email"
                class="form-control mb-4 col-4" placeholder="Email">
 
-        <input type="text" th:field="*{password}"
+        <label for="password">Mot de Passe</label>
+        <input type="text" th:field="*{password}" id="password"
                class="form-control mb-4 col-4" placeholder="password">
 
-        <input type="text" th:field="*{country}"
+        <label for="country">Pays</label>
+        <input type="text" th:field="*{country}" id="country"
                class="form-control mb-4 col-4" placeholder="country">
 
-        <input type="text" th:field="*{pseudo}"
+        <label for="pseudo">Pseudo</label>
+        <input type="text" th:field="*{pseudo}" id="pseudo"
                class="form-control mb-4 col-4" placeholder="Pseudo">
 
 
@@ -50,8 +56,8 @@
 
     </form>
 
-    <hr>
-    <a th:href="@{/members/list}">Retour dans la liste des Membres</a>
+
+    <a th:href="@{/}">Retour a L'Accueil</a>
 
 </div>
         </div>

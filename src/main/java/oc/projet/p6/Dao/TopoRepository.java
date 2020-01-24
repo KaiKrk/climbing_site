@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface TopoRepository extends JpaRepository<Topo, Integer> {
 
-
+    public List<Topo> findAllByUserId(int userId);
 
 }

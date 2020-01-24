@@ -14,40 +14,51 @@ public class Sector {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int sector_id;
+    private int sectorId;
 
     @Column(name = "sector_name")
-    private String sector_name;
+    private String sectorName;
 
     @Column(name = "sector_status")
-    private String sector_status;
+    private String sectorStatus;
+
+    @Column(name = "topo_id")
+    private int topoId;
+
+    public int getTopoId() {
+        return topoId;
+    }
+
+    public void setTopoId(int topoId) {
+        this.topoId = topoId;
+    }
 
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="sector_id")
     private List<Way> ways;
 
-    public int getSector_id() {
-        return sector_id;
+    public int getSectorId() {
+        return sectorId;
     }
 
-    public void setSector_id(int sector_id) {
-        this.sector_id = sector_id;
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
     }
 
-    public String getSector_name() {
-        return sector_name;
+    public String getSectorName() {
+        return sectorName;
     }
 
-    public void setSector_name(String sector_name) {
-        this.sector_name = sector_name;
+    public void setSectorName(String sectorName) {
+        this.sectorName = sectorName;
     }
 
-    public String getSector_status() {
-        return sector_status;
+    public String getSectorStatus() {
+        return sectorStatus;
     }
 
-    public void setSector_status(String sector_status) {
-        this.sector_status = sector_status;
+    public void setSectorStatus(String sectorStatus) {
+        this.sectorStatus = sectorStatus;
     }
 
     public List<Way> getWays() {
@@ -61,9 +72,10 @@ public class Sector {
     @Override
     public String toString() {
         return "Sector{" +
-                "sector_id=" + sector_id +
-                ", sector_name='" + sector_name + '\'' +
-                ", sector_status='" + sector_status + '\'' +
+                "sector_id=" + sectorId +
+                ", sector_name='" + sectorName + '\'' +
+                ", sector_status='" + sectorStatus + '\'' +
+                ", topo_id=" + topoId +
                 ", ways=" + ways +
                 '}';
     }

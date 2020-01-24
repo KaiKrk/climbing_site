@@ -17,33 +17,27 @@
 <div class="container">
     <div class="card my-auto">
         <div class="card-header">
-            <h2>Ajouter un Topo</h2>
+            <h2>Ajouter un Secteur</h2>
             <div class="card-body">
                 <hr>
 
-                <form th:action="@{/topo/save}"
-                      th:object="${topo}" method="POST">
+                <form th:action="@{/sectors/save}"
+                      th:object="${sector}" method="POST">
 
                     <!-- Add hidden form field to handle update -->
-                    <input type="hidden" th:field="*{topoId}" />
+                    <input type="hidden" th:field="*{sectorId}" />
 
-                    <label for="nameTopo">Nom du Topo</label>
-                    <input type="text" th:field="*{nameTopo}" id="nameTopo"
+                    <label for="name">Nom du Secteur</label>
+                    <input type="text" th:field="*{sectorName}" id="name"
                            class="form-control mb-4 col-4" placeholder="name">
 
-                    <label for="country">Pays</label>
-                    <input type="text" th:field="*{country}" id="country"
-                           class="form-control mb-4 col-4" placeholder="country">
-
-                    <label for="region">Region</label>
-                    <input type="text" th:field="*{region}" id="region"
-                           class="form-control mb-4 col-4" placeholder="region">
-
-                    <label for="statut">Statut du Topo</label>
-                    <input type="text" th:field="*{topoStatus}" id="statut"
+                    <label for="status">Statut du Secteur</label>
+                    <input type="text" th:field="*{sectorStatus}" id="status"
                            class="form-control mb-4 col-4" placeholder="statut">
 
-                    <button type="submit" class="btn btn-info col-2">Save</button>
+                    <input type="hidden" th:field="*{topoId}" />
+
+                    <button type="submit" class="btn btn-info col-2" name="action" value="save">Save</button>
 
                 </form>
 
@@ -55,6 +49,3 @@
     </div>
 </div>
 </body>
-
-</html>
-

@@ -13,12 +13,15 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+<div class ="container">
+	<div class="card">
+		<div class="card-body">
 		<p>
-			Welcome <span sec:authentication="principal.username">User</span>
+			Welcome <span sec:authentication="principal.username">User</span> Bienvenue dans votre Espace Personnel
 		</p>
-		<p>
-			<a th:href="@{/logout}">Logout</a>
-		</p>
+<!--		<p>-->
+<!--			<a th:href="@{/logout}">Logout</a>-->
+<!--		</p>-->
 
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<h3>You will see this only if you are ADMIN</h3>
@@ -26,11 +29,18 @@
 				<a th:href="@{/admin/home}">Admin Home</a>
 			</p>
 		</div>
-
-
-		<div>
-
 		</div>
+	</div>
+				<div class="card">
+					<div class="card-body">
+						<a th:href="@{/topo/myTopo}"
+						   class="btn btn-info btn-sm">
+							Mes Topos
+
+						</a>
+					</div>
+				</div>
+</div>
 	</div>
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

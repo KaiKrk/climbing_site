@@ -27,8 +27,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="tempTopo : ${topos}" scope="col">
-                    <td th:text="${tempTopo.name_topo}" />
-                    <td th:text="${tempTopo.topo_status}" />
+                    <td th:text="${tempTopo.nameTopo}" />
+                    <td th:text="${tempTopo.topoStatus}" />
                     <td th:text="${tempTopo.region}"/>
                     <td th:text="${tempTopo.country}"/>
                 </tr>
@@ -48,9 +48,9 @@
 
                 <tbody>
                 <tr th:each="tempSector : ${sectors}" scope="col">
-                    <td th:text="${tempSector.sector_name}" />
-                    <td th:text="${tempSector.sector_status}" />
-                    <td> <a th:href="@{/sectors/detail(SectorId=${tempSector.sector_id})}"
+                    <td th:text="${tempSector.sectorName}" />
+                    <td th:text="${tempSector.sectorStatus}" />
+                    <td> <a th:href="@{/sectors/detail(SectorId=${tempSector.sectorId})}"
                        class="btn btn-info btn-sm">
                         Detail
                     </a>
@@ -63,26 +63,26 @@
             </table>
 
 
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th>Commentaire</th>
+<!--            <table class="table">-->
+<!--                <thead class="thead-dark">-->
+<!--                <tr>-->
+<!--                    <th>Commentaire</th>-->
 
 
-                </tr>
-                </thead>
+<!--                </tr>-->
+<!--                </thead>-->
 
-                <tbody>
-                <tr th:each="tempComment : ${comment}" scope="col">
-                    <td th:text="${tempComment.comment}" />
-                    // how to get the pseudo of the author
-                    <td th:text="${tempSector.pseudo}" />
-                    <td type="hidden" th:field="*{tempComment.status}" /> // ?
+<!--                <tbody>-->
+<!--                <tr th:each="tempComment : ${comment}" scope="col">-->
+<!--                    <td th:text="${tempComment.comment}" />-->
+<!--                    // how to get the pseudo of the author-->
+<!--                    <td th:text="${tempSector.pseudo}" />-->
+<!--                    <td type="hidden" th:field="*{tempComment.status}" /> // ?-->
 
 
-                </tr>
-                </tbody>
-            </table>
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
             <a class="btn btn-info" onclick="history.back()">Retour</a>
         </div>
     </div>

@@ -14,4 +14,6 @@ public interface TopoService {
     public void save(Topo theTopo);
 
     public void deleteById(int theId);
+
+    public List<Topo> findAllByUserId(int userId);
 }
