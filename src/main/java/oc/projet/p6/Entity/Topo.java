@@ -34,6 +34,17 @@ public class Topo {
     @JoinColumn(name="topo_id")
     private List<Sector> sectors;
 
+    @OneToMany( cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="topo")
+    private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
     public List<Sector> getSectors() {
         return sectors;
     }

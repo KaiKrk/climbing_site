@@ -29,9 +29,7 @@ public class ResearchController {
 
     @PostMapping("/result")
     public String searchResult(@ModelAttribute("research") Research recherche, Model theModel){
-        String country = recherche.getCountry();
-        String region = recherche.getRegion();
-        System.out.println(country);
+        String country = recherche.getCountry(); String region = recherche.getRegion();
         List<Topo> topos = topoService.findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(country, region);
         theModel.addAttribute("topos", topos);
         System.out.println(topos.toString());

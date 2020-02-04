@@ -18,9 +18,10 @@ public class Comment {
     @Column(name = "member_id")
     private int memberId;
 
-    @Column(name = "topo_id")
-    private int topoId;
 
     @Column(name = "comment_status")
     private String commentStatus;
+
+    @ManyToOne
+    private Topo topo;
 }
