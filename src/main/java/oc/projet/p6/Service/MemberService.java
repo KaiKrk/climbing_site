@@ -17,5 +17,6 @@ public interface MemberService {
 	public void deleteById(int theId);
 
 	public Member findByName();
-	
+
+	Member findMemberByEmail();
 }

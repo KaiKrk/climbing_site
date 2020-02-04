@@ -14,7 +14,8 @@ public class Sector {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int sectorId;
+    @Column(name = "sector_id")
+    private int id;
 
     @Column(name = "sector_name")
     private String sectorName;
@@ -37,12 +38,12 @@ public class Sector {
     @JoinColumn(name="sector_id")
     private List<Way> ways;
 
-    public int getSectorId() {
-        return sectorId;
+    public int getId() {
+        return id;
     }
 
-    public void setSectorId(int sectorId) {
-        this.sectorId = sectorId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSectorName() {
@@ -72,7 +73,7 @@ public class Sector {
     @Override
     public String toString() {
         return "Sector{" +
-                "sector_id=" + sectorId +
+                "sector_id=" + id +
                 ", sector_name='" + sectorName + '\'' +
                 ", sector_status='" + sectorStatus + '\'' +
                 ", topo_id=" + topoId +

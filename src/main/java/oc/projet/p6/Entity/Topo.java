@@ -9,8 +9,8 @@ public class Topo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "topo_id")
-    private int topoId;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "name_topo")
     private String nameTopo;
@@ -26,6 +26,9 @@ public class Topo {
 
     @Column(name = "user_id")
     private int userId;
+
+    @OneToOne(mappedBy = "topo")
+    private Reservation reservation;
 
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name="topo_id")
@@ -57,12 +60,20 @@ public class Topo {
     public Topo() {
     }
 
-    public int getTopoId() {
-        return topoId;
+    public int getId() {
+        return id;
     }
 
-    public void setTopoId(int topoId) {
-        this.topoId = topoId;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 
     public String getNameTopo() {
@@ -100,7 +111,7 @@ public class Topo {
     @Override
     public String toString() {
         return "Topo{" +
-                "topo_id=" + topoId +
+                "topo_id=" + id +
                 ", name_topo='" + nameTopo + '\'' +
                 ", region='" + region + '\'' +
                 ", country='" + country + '\'' +

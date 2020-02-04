@@ -8,16 +8,51 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reservationId;
+    @Column(name = "reservation_id")
+    private int id;
 
     @Column(name = "reservation_status")
     private String reservationStatus;
 
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    @Column(name = "owner_id")
+    private int ownerId;
+
     @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "topo_id")
-    private int topoId;
+    @OneToOne
+    @JoinColumn(name = "topo_id", referencedColumnName = "id")
+    private Topo topo;
+
+    public Topo getTopo() {
+        return topo;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "reservationId=" + id +
+                ", reservationStatus='" + reservationStatus + '\'' +
+                ", ownerId=" + ownerId +
+                ", userId=" + userId +
+                ", topo=" + topo +
+                '}';
+    }
+
+    public void setTopo(Topo topo) {
+        this.topo = topo;
+    }
+//
+//    @Column(name = "topo_id")
+//    private int topoId;
 
     public Reservation() {
     }
@@ -25,15 +60,15 @@ public class Reservation {
     public Reservation(String reservationStatus, int userId, int topoId) {
         this.reservationStatus = reservationStatus;
         this.userId = userId;
-        this.topoId = topoId;
+//        this.topoId = topoId;
     }
 
-    public int getReservationId() {
-        return reservationId;
+    public int getId() {
+        return id;
     }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getReservationStatus() {
@@ -51,12 +86,12 @@ public class Reservation {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
-    public int getTopoId() {
-        return topoId;
-    }
-
-    public void setTopoId(int topoId) {
-        this.topoId = topoId;
-    }
+//
+//    public int getTopoId() {
+//        return topoId;
+//    }
+//
+//    public void setTopoId(int topoId) {
+//        this.topoId = topoId;
+//    }
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Mes Reservation</title>
+</head>
+<body>
+<div class ="container">
+    <div class="card">
+        <h2>Mes Demandes de Topo</h2>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nom du Topo</th>
+                    <th>Identifiant de l'Emprunteur </th>
+                    <th>Statut de la reservation</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempReservation : ${reservation}" scope="col">
+                    <td th:text="${tempReservation.topo.nameTopo}" />
+                    <td th:text="${tempReservation.userId}" />
+                    <td th:text="${tempReservation.reservationStatus}"/>
+
+                    <td>
+                        <!-- Add "update" button/link -->
+                        <a th:href="@{/reservations/management(action='accept',id=${tempReservation.id})}"
+                           class="btn btn-info btn-sm" th:name="action" th:value="accept">
+                            Accepter
+
+                        </a>
+                        <a th:href="@{/reservations/management(action='decline',id=${tempReservation.id})}"
+                           class="btn btn-danger btn-sm" th:name="action" th:value="decline">
+                            Refuser
+
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <h2>Mes Topos Empruntes</h2>
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nom du Topo</th>
+                    <th>Disponibilite</th>
+                    <th>Region</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempTopo : ${topos}" scope="col">
+                    <td th:text="${tempTopo.nameTopo}" />
+                    <td th:text="${tempTopo.topoStatus}" />
+                    <td th:text="${tempTopo.region}"/>
+                    <td th:text="${tempTopo.country}"/>
+
+                    <td>
+                        <a th:href="@{/topo/detail(id=${tempTopo.id})}"
+                           class="btn btn-info btn-sm">
+                            Detail
+
+                        </a>
+                        <a th:href="@{/topo/free(action='free',id=${tempTopo.id})}"
+                           class="btn btn-success btn-sm">
+                            Liberer
+
+                        </a>
+
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="row form-group justify-content-around">
+                <a th:href="@{/home}"
+                   class="btn btn-outline-dark mb-3  ">
+                    Return
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

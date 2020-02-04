@@ -49,18 +49,18 @@ public class TopoController {
         return "Topo/topo-personal-list";
     }
     @GetMapping("/detail")
-    public String topoById (@RequestParam("topoId")int theId, Model theModel){
+    public String topoById (@RequestParam("id")int theId, Model theModel){
         Topo theTopo = topoService.findById(theId);
         theModel.addAttribute("topos",theTopo);
         theModel.addAttribute("sectors", theTopo.getSectors());
         System.out.println(theTopo.toString());
         System.out.println("Et");
         System.out.println(theTopo.getSectors().toString());
-        return "/Topo/topo-personal-detail"; //form of the page showing the list of topos
+        return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
     @GetMapping("/add")
     public String addTopo(Model theModel){
-        Member theMember = memberService.findByName();
+        Member theMember =(Member) memberService.findMemberByEmail();
 
         Topo theTopo = new Topo();
         theModel.addAttribute("topo",theTopo);
@@ -69,10 +69,19 @@ public class TopoController {
     }
     @PostMapping("/save")
     public String save(@ModelAttribute("topo") Topo theTopo){
-        Member theMember = memberService.findByName();
+        Member theMember = memberService.findMemberByEmail();
         theTopo.setUserId(theMember.getId());
         topoService.save(theTopo);
 
         return "redirect:/topo/myTopo";
+    }
+    @GetMapping("/free")
+    public String freeReservatedTopo(@RequestParam("id")int theId){
+        Topo theTopo = topoService.findById(theId);
+
+        String available = "Disponible"; // a mettre dans une enum
+        theTopo.setTopoStatus(available);
+        topoService.save(theTopo);
+        return "redirect:/reservations/myReservation";
     }
 }

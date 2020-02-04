@@ -50,7 +50,7 @@ public class MemberController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("memberId") int theId,
+    public String showFormForUpdate(@RequestParam("id") int theId,
                                     Model theModel) {
 
         // get the employee from the service
@@ -78,7 +78,7 @@ public class MemberController {
 
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("memberId") int theId) {
+    public String delete(@RequestParam("id") int theId) {
 
         // delete the employee
         memberService.deleteById(theId);
@@ -88,7 +88,7 @@ public class MemberController {
 
     }
     @GetMapping("/showFormForPromote")
-    public String showFormForPromote(@RequestParam("memberId") int theId,
+    public String showFormForPromote(@RequestParam("id") int theId,
                                     Model theModel) {
 
         // get the employee from the service

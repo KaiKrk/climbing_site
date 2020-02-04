@@ -15,7 +15,7 @@ public class WayController {
     private WayService wayService;
 
     @GetMapping("/add")
-    public String addWay(@RequestParam("sectorId") int theId, Model theModel){
+    public String addWay(@RequestParam("id") int theId, Model theModel){
         Way way = new Way();
         way.setSectorId(theId);
         theModel.addAttribute("way" ,way);

@@ -57,5 +57,13 @@ public class TopoServiceImpl implements TopoService {
     @Override
     public List<Topo> findAllByUserId(int userId){ return topoRepository.findAllByUserId(userId);
 
-    };
+    }
+
+    public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region) {
+        return topoRepository.findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(country, region);}
+
+    @Override
+    public List<Topo> findAllByTopoStatus(String status) {
+        return topoRepository.findAllByTopoStatus(status);
+    }
 }

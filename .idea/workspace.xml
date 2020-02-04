@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7bafb60-9174-401c-954e-a7bdc2841626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/AjoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/WayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/sector-personal-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/sector-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/way-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/ResearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/ReservationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Research.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/ReservationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/ReservationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/confirmation-reservation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/topo-card.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/research/research-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/research/research-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reservation-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/reservation/reservation-personnal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/p6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/SectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/SectorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/TopoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/TopoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/WayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Controller/WayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/ReservationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/TopoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Dao/TopoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Reservation.java" afterDir="false" />
@@ -23,40 +28,43 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Way.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Entity/Way.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/SectorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/SectorServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/TopoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/TopoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/TopoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/Service/TopoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/oc/projet/p6/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oc/projet/p6/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/sector-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/sector-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/sector-personal-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/sector-personal-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/connexion/login-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/login-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/connexion/registration-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/connexion/registration-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Topo/topo-personal-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sector-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sector-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/topo-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/topo-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userhome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/way-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/way-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/MemberController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/SectorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/SectorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/TopoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/TopoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/WelcomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/WayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Controller/WayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/MemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/ReservationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/ReservationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/TopoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Dao/TopoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Reservation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Sector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Sector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Topo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Topo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Way.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Entity/Way.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/MemberService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/MemberServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/SectorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/SectorServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/TopoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/TopoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/TopoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/Service/TopoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oc/projet/p6/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/oc/projet/p6/config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Topo/sector-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Topo/sector-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Topo/topo-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Topo/topo-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/Topo/topo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Topo/topo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/connexion/login-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/connexion/login-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Topo/topo-personal-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Topo/topo-personal-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/sector-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/sector-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/topo-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/topo-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/userhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userhome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/way-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/way-form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,10 +75,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="spring-beans.schema" />
         <option value="FxmlFile" />
         <option value="Tag Library Descriptor" />
+        <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
       </list>
@@ -106,7 +114,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../solution-code-spring-crm-rest-demo-delete-customer" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/voteapp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -116,8 +124,10 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\java\oc\projet\p6" />
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources\templates" />
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\java\oc\projet\p6\Service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="oc.projet.p6.security" />
@@ -126,10 +136,9 @@
       <recent name="oc.projet.p6.Dao" />
       <recent name="oc.projet.p6.Controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\java\oc\projet\p6" />
-      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources\templates" />
-      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\java\oc\projet\p6\Service" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources\templates\research" />
+      <recent name="C:\Users\Kaiqiang\Documents\p6\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -197,7 +206,16 @@
       <workItem from="1579603467017" duration="10096000" />
       <workItem from="1579691765843" duration="11099000" />
       <workItem from="1579775620492" duration="17931000" />
-      <workItem from="1579868957124" duration="19880000" />
+      <workItem from="1579868957124" duration="20382000" />
+      <workItem from="1580149464626" duration="11392000" />
+      <workItem from="1580276550326" duration="2129000" />
+      <workItem from="1580321946666" duration="3443000" />
+      <workItem from="1580498490761" duration="600000" />
+      <workItem from="1580544145364" duration="1913000" />
+      <workItem from="1580579417855" duration="7211000" />
+      <workItem from="1580632116129" duration="7813000" />
+      <workItem from="1580665111030" duration="13936000" />
+      <workItem from="1580735338716" duration="23409000" />
     </task>
     <servers />
   </component>

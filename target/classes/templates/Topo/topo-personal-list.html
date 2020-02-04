@@ -32,7 +32,7 @@
 
                     <td>
                         <!-- Add "update" button/link -->
-                        <a th:href="@{/topo/detail(topoId=${tempTopo.topoId})}"
+                        <a th:href="@{/topo/detail(id=${tempTopo.id})}"
                            class="btn btn-info btn-sm">
                             Detail
 
@@ -43,15 +43,15 @@
                 </tbody>
             </table>
             <div class="row form-group justify-content-around">
-            <a th:href="@{/}"
-               class="btn btn-outline-dark mb-3  ">
-                Return
-            </a>
-            <a th:href="@{/topo/add}"
-               class="btn btn-outline-dark mb-3">
-                Ajouter Un Topo
+                <a th:href="@{/home}"
+                   class="btn btn-outline-dark mb-3  ">
+                    Return
+                </a>
+                <a th:href="@{/topo/add}"
+                   class="btn btn-outline-dark mb-3">
+                    Ajouter Un Topo
 
-            </a>
+                </a>
             </div>
         </div>
     </div>

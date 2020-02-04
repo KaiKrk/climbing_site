@@ -43,19 +43,19 @@
 
                     <td>
                         <!-- Add "update" button/link -->
-                        <a th:href="@{/members/showFormForUpdate(memberId=${tempMember.id})}"
+                        <a th:href="@{/members/showFormForUpdate(id=${tempMember.id})}"
                            class="btn btn-info btn-sm">
                             Update
                         </a>
 
                         <!-- Add "delete" button/link -->
-                        <a th:href="@{/members/delete(memberId=${tempMember.id})}"
+                        <a th:href="@{/members/delete(id=${tempMember.id})}"
                            class="btn btn-danger btn-sm"
                            onclick="if (!(confirm('Are you sure you want to delete this member?'))) return false">
                             Delete
                         </a>
 
-                        <a th:href="@{/members/showFormForPromote(memberId=${tempMember.id})}"
+                        <a th:href="@{/members/showFormForPromote(id=${tempMember.id})}"
                            class="btn btn-success btn-sm" >Promote
                         </a>
 

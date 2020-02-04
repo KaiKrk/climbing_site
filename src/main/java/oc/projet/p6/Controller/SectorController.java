@@ -15,7 +15,7 @@ public class SectorController {
     private SectorService sectorService;
 
     @GetMapping("/mySector")
-    public String listPersonalSector(@RequestParam("sectorId")int theId,Model theModel) {
+    public String listPersonalSector(@RequestParam("id")int theId,Model theModel) {
         Sector theSector = sectorService.findById(theId);
         theModel.addAttribute("sectors", theSector);
         theModel.addAttribute("ways", theSector.getWays());
@@ -25,7 +25,7 @@ public class SectorController {
     }
 
     @GetMapping("/detail")
-    public String getSecteur(@RequestParam("sectorId")int theId, Model theModel){
+    public String getSecteur(@RequestParam("id")int theId, Model theModel){
 
         Sector theSector = sectorService.findById(theId);
         theModel.addAttribute("sectors", theSector);
@@ -35,7 +35,7 @@ public class SectorController {
     }
 
     @GetMapping("/add")
-    public String addSector(@RequestParam("topoId") int theId, Model theModel){
+    public String addSector(@RequestParam("id") int theId, Model theModel){
     Sector sector = new Sector();
     sector.setTopoId(theId);
     theModel.addAttribute("sector" ,sector);

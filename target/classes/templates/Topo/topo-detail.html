@@ -50,7 +50,7 @@
                 <tr th:each="tempSector : ${sectors}" scope="col">
                     <td th:text="${tempSector.sectorName}" />
                     <td th:text="${tempSector.sectorStatus}" />
-                    <td> <a th:href="@{/sectors/detail(SectorId=${tempSector.sectorId})}"
+                    <td> <a th:href="@{/sectors/detail(id=${tempSector.id})}"
                        class="btn btn-info btn-sm">
                         Detail
                     </a>

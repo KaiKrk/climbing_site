@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class ="container">
+    <div class="card">
+        <div class="card-body">
+            <h2>Votre Demande de Reservation</h2>
+            <form action="#" th:action="@{/reservations/save}"
+                  th:object="${reservation}" method="POST">
+
+                <label for="userId">Votre Identifiant </label>
+                <input type="text" th:field="*{userId}" id="userId"
+                       class="form-control mb-4 col-4" placeholder="Id de l'utilisateur" readonly="readonly">
+
+                <label for="topoId">Le Topo que vous voulez Reserver</label>
+                <input type="text" th:field="*{topoId}" id="topoId"
+                       class="form-control mb-4 col-4" placeholder="Id du Topo" readonly="readonly">
+
+                <input type="hidden" th:field="*{reservationStatus}"
+                       class="form-control mb-4 col-4" placeholder="Statut" readonly="readonly">
+
+
+                <button type="submit" class="btn btn-info col-2">Confirmer</button>
+
+            </form>
+
+
+
+        </div>
+        <a class="btn btn-info" onclick="history.back()">Retour</a>
+    </div>
+</div>
+
+</body>
+</html>

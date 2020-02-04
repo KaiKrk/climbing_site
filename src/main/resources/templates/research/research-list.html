@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Liste des Topos</title>
+</head>
+<body>
+<div class ="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nom du Topo</th>
+                    <th>Disponibilite</th>
+                    <th>Region</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempTopo : ${topos}" scope="col">
+                    <td th:text="${tempTopo.nameTopo}" />
+                    <td th:text="${tempTopo.topoStatus}" />
+                    <td th:text="${tempTopo.region}"/>
+                    <td th:text="${tempTopo.country}"/>
+
+                    <td>
+                        <!-- Add "update" button/link -->
+                        <a th:href="@{/topo/detail(id=${tempTopo.id})}"
+                           class="btn btn-info btn-sm">
+                            Detail
+                        </a>
+                </tr>
+                </tbody>
+            </table>
+            <a onclick="history.back()"
+               class="btn btn-outline-dark mb-3  btn-sm">
+                Return
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

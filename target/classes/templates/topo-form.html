@@ -25,7 +25,7 @@
                       th:object="${topo}" method="POST">
 
                     <!-- Add hidden form field to handle update -->
-                    <input type="hidden" th:field="*{topoId}" />
+                    <input type="hidden" th:field="*{id}" />
 
                     <label for="nameTopo">Nom du Topo</label>
                     <input type="text" th:field="*{nameTopo}" id="nameTopo"
@@ -48,7 +48,7 @@
                 </form>
 
                 <hr>
-                <a onclick="history.back()" class="btn btn-dark col-2"> Retour </a>
+                <a onclick="history.back()" class="btn btn-info col-2"> Retour </a>
 
             </div>
         </div>

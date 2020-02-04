@@ -50,7 +50,7 @@
                 <tr th:each="tempSector : ${sectors}" scope="col">
                     <td th:text="${tempSector.sectorName}" />
                     <td th:text="${tempSector.sectorStatus}" />
-                    <td> <a th:href="@{/sectors/mySector(sectorId=${tempSector.sectorId})}"
+                    <td> <a th:href="@{/sectors/mySector(id=${tempSector.id})}"
                             class="btn btn-info btn-sm">
                         Detail
                     </a>
@@ -87,7 +87,7 @@
                 <a class="btn btn-outline-dark mb-3  " onclick="history.back()">
                     Return
                 </a>
-                <a th:href="@{/sectors/add(topoId= ${param.topoId})}"
+                <a th:href="@{/sectors/add(id= ${param.id})}"
                    class="btn btn-outline-dark mb-3">
                     Ajouter Un Secteur
 

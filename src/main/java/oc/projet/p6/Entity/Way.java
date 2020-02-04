@@ -8,7 +8,8 @@ public class Way {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int wayId;
+    @Column(name = "way_id")
+    private int id;
 
     @Column(name = "name")
     private String nameWay;
@@ -39,12 +40,12 @@ public class Way {
         this.points = points;
     }
 
-    public int getWayId() {
-        return wayId;
+    public int getId() {
+        return id;
     }
 
-    public void setWayId(int wayId) {
-        this.wayId = wayId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameWay() {
@@ -74,7 +75,7 @@ public class Way {
     @Override
     public String toString() {
         return "Way{" +
-                "way_id=" + wayId +
+                "way_id=" + id +
                 ", name_way='" + nameWay + '\'' +
                 ", difficulty='" + difficulty + '\'' +
                 ", points=" + points +

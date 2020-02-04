@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 		memberRepository.deleteById(theId);
 	}
 
-	@Override
+	@Override// a mettre en @Query
 	public Member findByName(){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
@@ -67,6 +67,15 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println(currentMember);
 		return currentMember;
 	}
+
+	@Override
+	public Member findMemberByEmail() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentPrincipalName = authentication.getName();
+		Member theMember = memberRepository.findMemberByEmail(currentPrincipalName);
+		return theMember;
+	}
+
 
 }
 
