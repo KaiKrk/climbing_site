@@ -26,24 +26,12 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public List<Member> findAll() {
-		return memberRepository.findAll();
+		return memberRepository.findAllMemberByOrderByIdAsc();
 	}
 
 	@Override
 	public Member findById(int theId) {
-		Optional<Member> result = memberRepository.findById(theId);
-
-		Member theMember = null;
-		
-		if (result.isPresent()) {
-			theMember = result.get();
-		}
-		else {
-			// we didn't find the employee
-			throw new RuntimeException("Did not find member id - " + theId);
-		}
-		
-		return theMember;
+		return memberRepository.findMemberById(theId);
 	}
 
 	@Override

@@ -22,10 +22,15 @@ public class TopoController {
     private MemberService memberService;
 
     @Autowired
+    private ReservationService reservationService;
+
+
+    @Autowired
     private WayService wayService;
 
     @Autowired
     private CommentService commentService;
+
 
     @GetMapping("/list")
     public String listTopo(Model theModel){
@@ -41,7 +46,7 @@ public class TopoController {
     @GetMapping("/myTopo")
     public String listPersonalTopo(Model theModel){
     Member theMember = memberService.findByName();
-    List<Topo> thePersonalTopo = topoService.findAllByUserId(theMember.getId());
+    List<Topo> thePersonalTopo = topoService.findAllByMemberId(theMember.getId());
 
 
     theModel.addAttribute("topos", thePersonalTopo);
@@ -58,6 +63,17 @@ public class TopoController {
         System.out.println(theTopo.getSectors().toString());
         return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
+
+    @GetMapping("/myTopoDetail")
+    public String myTopoById (@RequestParam("id")int theId, Model theModel){
+        Topo theTopo = topoService.findById(theId);
+        theModel.addAttribute("topos",theTopo);
+        theModel.addAttribute("sectors", theTopo.getSectors());
+        System.out.println(theTopo.toString());
+        System.out.println("Et");
+        System.out.println(theTopo.getSectors().toString());
+        return "/Topo/topo-personal-detail"; //form of the page showing the list of topos
+    }
     @GetMapping("/add")
     public String addTopo(Model theModel){
         Member theMember =(Member) memberService.findMemberByEmail();
@@ -70,18 +86,26 @@ public class TopoController {
     @PostMapping("/save")
     public String save(@ModelAttribute("topo") Topo theTopo){
         Member theMember = memberService.findMemberByEmail();
-        theTopo.setUserId(theMember.getId());
+        theTopo.setMember(theMember);
         topoService.save(theTopo);
 
         return "redirect:/topo/myTopo";
     }
     @GetMapping("/free")
     public String freeReservatedTopo(@RequestParam("id")int theId){
-        Topo theTopo = topoService.findById(theId);
+        Reservation reservation = reservationService.findById(theId);
+        System.out.println("-------" +theId);
+        System.out.println(reservation.toString());
+        reservation.setReservationStatus("Termine");
+
+        Topo theTopo = topoService.findById(reservation.getTopo().getId());
 
         String available = "Disponible"; // a mettre dans une enum
         theTopo.setTopoStatus(available);
         topoService.save(theTopo);
+
+        reservationService.deleteById(theId);
+
         return "redirect:/reservations/myReservation";
     }
 }

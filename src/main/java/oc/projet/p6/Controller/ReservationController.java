@@ -44,11 +44,12 @@ public class ReservationController {
     public String confirm(@RequestParam("id") int theId, Model theModel){
         Reservation reservation = new Reservation();
         Topo theTopo = topoService.findById(theId);
-
+        //       theTopo.setTopoStatus("Indisponible");
 //        reservation.setTopo();
-        reservation.setOwnerId(theTopo.getUserId());
+  //      reservation.setOwnerId(theTopo.getMember().getId());
 
         Member theMember = memberService.findMemberByEmail();
+        reservation.setTopo(theTopo);
         reservation.setUserId(theMember.getId());
         reservation.setReservationStatus("En Attente");
         theModel.addAttribute("reservation" ,reservation);
@@ -75,9 +76,9 @@ public class ReservationController {
 
         String st = "En Attente";
         System.out.println("-----------------------------------------------------");
-        List<Reservation> reservations = reservationService.findAllByOwnerIdAndReservationStatusIgnoreCaseContaining(21, statutPending);
+        List<Reservation> reservations = reservationService.findAllByOwnerIdAndReservationStatusIgnoreCaseContaining(theId, statutPending);
         System.out.println("-----------------------------------------------------");
-        List<Reservation> queryreservation = reservationService.findAllReservation(21, st);
+        List<Reservation> queryreservation = reservationService.findAllReservation(theId, statutPending);
         System.out.println("-----------------------------------------------------");
         System.out.println("1 " +reservations);
         System.out.println(st);
@@ -87,16 +88,20 @@ public class ReservationController {
 
         List<Reservation> topoReserve = reservationService.findAllByUserIdAndReservationStatusIgnoreCaseContaining(theId, statutAccepted);
         System.out.println(topoReserve.toString()); // check
-        List<Topo> topos = new ArrayList<>();
-        for (Reservation reservation: topoReserve
-             ) {
-            Topo theTopo = topoService.findById(reservation.getTopo().getId());
-            topos.add(theTopo);
-            System.out.println(" B "+ theTopo.toString()); // check
-        }
-        theModel.addAttribute("topos", topos);
+//        List<Topo> topos = new ArrayList<>();
+//        for (Reservation reservation: topoReserve
+//             ) {
+//            Topo theTopo = topoService.findById(reservation.getTopo().getId());
+//            topos.add(theTopo);
+//            System.out.println(" B "+ theTopo.toString()); // check
+//        }
+//        theModel.addAttribute("topos", topos);
+
+       theModel.addAttribute("topos", topoReserve);
         return "reservation/reservation-personnal";
     }
+
+
 
     @GetMapping("/management")
     public String allowReservation(@RequestParam(value = "action" , required = false) String action, @RequestParam(value = "id") int reservationId){
@@ -109,8 +114,10 @@ public class ReservationController {
         } else if (action.equalsIgnoreCase("decline")){
             System.out.println("decline confirm" + "id = " +reservationId);
             Reservation reservation = reservationService.findById(reservationId);
-            reservation.setReservationStatus(statutDeclined);
-            reservationService.save(reservation);
+            reservation.getTopo().setTopoStatus("Disponible");
+         //   reservation.setReservationStatus(statutDeclined);
+            reservationService.deleteById(reservationId);
+         //   reservationService.save(reservation);
         }
 
         System.out.println("out");

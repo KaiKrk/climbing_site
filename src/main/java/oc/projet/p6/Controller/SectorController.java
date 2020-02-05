@@ -2,6 +2,7 @@ package oc.projet.p6.Controller;
 
 import oc.projet.p6.Entity.Sector;
 import oc.projet.p6.Service.SectorService;
+import oc.projet.p6.Service.TopoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,9 @@ public class SectorController {
 
     @Autowired
     private SectorService sectorService;
+
+    @Autowired
+    private TopoService topoService;
 
     @GetMapping("/mySector")
     public String listPersonalSector(@RequestParam("id")int theId,Model theModel) {
@@ -31,13 +35,15 @@ public class SectorController {
         theModel.addAttribute("sectors", theSector);
         theModel.addAttribute("ways", theSector.getWays());
         System.out.println(theSector.toString());
-                return "Topo/sector-personal-detail";
+                return "Topo/sector-detail";
     }
+
+
 
     @GetMapping("/add")
     public String addSector(@RequestParam("id") int theId, Model theModel){
     Sector sector = new Sector();
-    sector.setTopoId(theId);
+    sector.setTopo(topoService.findById(theId));
     theModel.addAttribute("sector" ,sector);
     return "sector-form";
     }
@@ -45,7 +51,8 @@ public class SectorController {
     @PostMapping("/save")
     public String save(@ModelAttribute("sector") Sector theSector){
     sectorService.save(theSector);
-    return "redirect:/topo/detail?topoId=" + theSector.getTopoId() ;
+        System.out.println(theSector.getTopo().getId());
+    return "redirect:/topo/detail?id=" + theSector.getTopo().getId() +"  " ;
     }
 
 

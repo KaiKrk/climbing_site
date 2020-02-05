@@ -24,17 +24,29 @@ public class Topo {
     @Column(name = "topo_status")
     private String topoStatus;
 
-    @Column(name = "user_id")
-    private int userId;
+//    @Column(name = "user_id")
+//    private int userId;
 
-    @OneToOne(mappedBy = "topo")
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    @OneToOne(mappedBy = "topo", fetch = FetchType.LAZY)
     private Reservation reservation;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany( cascade=CascadeType.ALL)
     @JoinColumn(name="topo_id")
     private List<Sector> sectors;
 
-    @OneToMany( cascade=CascadeType.REMOVE, orphanRemoval=true, mappedBy="topo")
+    @OneToMany( cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="topo")
     private List<Comment> comments;
 
     public List<Comment> getComments() {
@@ -60,13 +72,13 @@ public class Topo {
         this.topoStatus = topoStatus;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     public Topo() {
     }
@@ -127,7 +139,7 @@ public class Topo {
                 ", region='" + region + '\'' +
                 ", country='" + country + '\'' +
                 ", topo_status='" + topoStatus + '\'' +
-                ", userId=" + userId +
+//                ", userId=" + userId +
                 ", sectors=" + sectors +
                 '}';
     }

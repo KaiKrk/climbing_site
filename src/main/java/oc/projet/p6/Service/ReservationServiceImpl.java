@@ -42,5 +42,9 @@ public class ReservationServiceImpl implements ReservationService{
         return reservationRepository.findAllReservation(userId, status);
     }
 
+    @Override
+    public void deleteById(int theId) { reservationRepository.deleteById(theId);
+    }
+
 
 }

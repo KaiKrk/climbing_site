@@ -15,7 +15,7 @@ public interface TopoService {
 
     public void deleteById(int theId);
 
-    public List<Topo> findAllByUserId(int userId);
+    public List<Topo> findAllByMemberId(int userId);
 
     public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region);
 

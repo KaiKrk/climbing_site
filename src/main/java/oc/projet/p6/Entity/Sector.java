@@ -1,5 +1,6 @@
 package oc.projet.p6.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -23,18 +24,30 @@ public class Sector {
     @Column(name = "sector_status")
     private String sectorStatus;
 
-    @Column(name = "topo_id")
-    private int topoId;
+    @ManyToOne
+    @JoinColumn(name = "topo_id", referencedColumnName = "id")
+    private Topo topo;
 
-    public int getTopoId() {
-        return topoId;
+    public Topo getTopo() {
+        return topo;
     }
 
-    public void setTopoId(int topoId) {
-        this.topoId = topoId;
+    public void setTopo(Topo topo) {
+        this.topo = topo;
     }
+////    @Column(name = "topo_id")
+////
+//
+//
+//    public int getTopoId() {
+//        return topoId;
+//    }
+//
+//    public void setTopoId(int topoId) {
+//        this.topoId = topoId;
+//    }
 
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany( cascade=CascadeType.ALL)
     @JoinColumn(name="sector_id")
     private List<Way> ways;
 
@@ -76,7 +89,7 @@ public class Sector {
                 "sector_id=" + id +
                 ", sector_name='" + sectorName + '\'' +
                 ", sector_status='" + sectorStatus + '\'' +
-                ", topo_id=" + topoId +
+//                ", topo_id=" + topoId +
                 ", ways=" + ways +
                 '}';
     }

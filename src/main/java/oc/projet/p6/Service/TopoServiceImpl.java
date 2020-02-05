@@ -55,7 +55,7 @@ public class TopoServiceImpl implements TopoService {
 //        return topos;
 //    }
     @Override
-    public List<Topo> findAllByUserId(int userId){ return topoRepository.findAllByUserId(userId);
+    public List<Topo> findAllByMemberId(int userId){ return topoRepository.findAllByMemberId(userId);
 
     }
 

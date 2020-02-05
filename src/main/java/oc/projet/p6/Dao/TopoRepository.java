@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public interface TopoRepository extends JpaRepository<Topo, Integer> {
 
-    public List<Topo> findAllByUserId(int userId);
+    @Query("select topo from Topo topo join topo.member a where a.id = :userId")
+    public List<Topo> findAllByMemberId(int userId);
 
     public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region);
 

@@ -15,6 +15,7 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
+                    <th>Identifiant du Topo</th>
                     <th>Nom du Topo</th>
                     <th>Disponibilite</th>
                     <th>Region</th>
@@ -24,6 +25,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="tempTopo : ${topos}" scope="col">
+                    <td th:text="${tempTopo.id}"/>
                     <td th:text="${tempTopo.nameTopo}" />
                     <td th:text="${tempTopo.topoStatus}" />
                     <td th:text="${tempTopo.region}"/>

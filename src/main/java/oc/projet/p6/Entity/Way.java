@@ -20,16 +20,28 @@ public class Way {
     @Column(name = "number_points")
     private int points;
 
-    @Column(name = "sector_id")
-    private int sectorId;
+//    @Column(name = "sector_id")
+//    private int sectorId;
 
-    public int getSectorId() {
-        return sectorId;
+    public Sector getSector() {
+        return sector;
     }
 
-    public void setSectorId(int sectorId) {
-        this.sectorId = sectorId;
+    public void setSector(Sector sector) {
+        this.sector = sector;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "sector_id", referencedColumnName = "sector_id")
+    private Sector sector;
+
+//    public int getSectorId() {
+//        return sectorId;
+//    }
+//
+//    public void setSectorId(int sectorId) {
+//        this.sectorId = sectorId;
+//    }
 
     public Way() {
     }
@@ -79,7 +91,7 @@ public class Way {
                 ", name_way='" + nameWay + '\'' +
                 ", difficulty='" + difficulty + '\'' +
                 ", points=" + points +
-                ", sector_id=" + sectorId +
+//                ", sector_id=" + sectorId +
                 '}';
     }
 }

@@ -16,4 +16,6 @@ public interface ReservationService {
     Reservation findById(int reservationId);
 
     List<Reservation> findAllReservation(int userId, String status);
+
+    public void deleteById(int theId);
 }

@@ -23,5 +23,6 @@ public class Comment {
     private String commentStatus;
 
     @ManyToOne
+    @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
 }

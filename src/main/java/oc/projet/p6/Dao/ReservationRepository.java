@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ReservationRepository extends JpaRepository <Reservation,Integer> {
 
-   @Query("select reservation from Reservation reservation join reservation.topo topo where topo.userId = :theId and reservation.reservationStatus = :status")
+   @Query("select reservation from Reservation reservation join reservation.topo topo join topo.member membre where membre.id = :theId and reservation.reservationStatus = :status")
     List<Reservation> findAllReservation(int theId, String status);
 
     Reservation findById(int id);

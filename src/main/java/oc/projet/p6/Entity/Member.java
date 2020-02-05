@@ -34,6 +34,17 @@ public class Member {
     @Column(name = "password")
     private String password;
 
+    @OneToMany( cascade=CascadeType.ALL,  mappedBy = "member")
+    private List<Topo> topos;
+
+    public List<Topo> getTopos() {
+        return topos;
+    }
+
+    public void setTopos(List<Topo> topos) {
+        this.topos = topos;
+    }
+
     @ManyToMany(cascade=CascadeType.MERGE)
     @JoinTable(
             name="member_role",
