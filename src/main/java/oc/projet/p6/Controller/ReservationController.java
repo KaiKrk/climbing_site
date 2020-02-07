@@ -115,9 +115,7 @@ public class ReservationController {
             System.out.println("decline confirm" + "id = " +reservationId);
             Reservation reservation = reservationService.findById(reservationId);
             reservation.getTopo().setTopoStatus("Disponible");
-         //   reservation.setReservationStatus(statutDeclined);
             reservationService.deleteById(reservationId);
-         //   reservationService.save(reservation);
         }
 
         System.out.println("out");

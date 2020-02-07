@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div th:replace="fragments/header :: header">...</div>
 <head>
     <meta charset="UTF-8">
@@ -84,6 +85,43 @@
 <!--                </tbody>-->
 <!--            </table>-->
             <a class="btn btn-info" onclick="history.back()">Retour</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Commentaire</th>
+                    <th>Auteur</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="comments : ${comments}" scope="col">
+                    <td th:text="${comments.commentaire}" />
+                    <td th:text="${comments.member.name}" />
+                </tbody>
+            </table>
+                <form th:action="@{/comments/save}"
+                      th:object="${comment}" method="POST" sec:authorize="isAuthenticated()">
+
+                    <!-- Add hidden form field to handle update -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <label for="comment" >Ajouter un Commentaire</label>
+                    <input type="text" th:field="*{commentaire}" id="comment"
+                           class="form-control mb-4 col-4" placeholder="commentaire">
+
+                    <input type="hidden" th:field="*{member.id}" id="author"
+                           class="form-control mb-4 col-4" placeholder="author">
+
+                    <input type="hidden" th:field="*{topo.id}" id="topo"
+                           class="form-control mb-4 col-4" placeholder="topo">
+
+                    <button type="submit" class="btn btn-info col-2">Save</button>
+
+                </form>
         </div>
     </div>
 </div>

@@ -17,7 +17,7 @@
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" th:href="@{/members/list}">Membres</a>
                 <a class="nav-item nav-link" href="/topo/list">Sites D'Escalade</a>
-                <a class="nav-item nav-link" href="/reservations/reservation">Reservation</a>
+                <a class="nav-item nav-link" href="/reservations/reservation" sec:authorize="isAuthenticated()">Reservation</a>
                 <a class="nav-item nav-link" href="/search">Recherche</a>
                 <a class="nav-item nav-link" sec:authorize="isAuthenticated()" th:href="@{/home}">Mon Espace Personnel</a>
                 <a class="btn btn-info" sec:authorize="isAnonymous()" href="/login">Connexion</a>

@@ -57,10 +57,22 @@ public class TopoController {
     public String topoById (@RequestParam("id")int theId, Model theModel){
         Topo theTopo = topoService.findById(theId);
         theModel.addAttribute("topos",theTopo);
+
         theModel.addAttribute("sectors", theTopo.getSectors());
-        System.out.println(theTopo.toString());
-        System.out.println("Et");
-        System.out.println(theTopo.getSectors().toString());
+
+        List<Comment> comments = commentService.findAllByTopo(theId);
+        theModel.addAttribute("comments", comments );
+        System.out.println(comments.toString());
+
+        Comment comment = new Comment();
+        comment.setMember(memberService.findMemberByEmail());
+        comment.setTopo(theTopo);
+        theModel.addAttribute("comment", comment);
+
+
+//        System.out.println(theTopo.toString());
+//        System.out.println("Et");
+//        System.out.println(theTopo.getSectors().toString());
         return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
 
@@ -76,7 +88,7 @@ public class TopoController {
     }
     @GetMapping("/add")
     public String addTopo(Model theModel){
-        Member theMember =(Member) memberService.findMemberByEmail();
+        Member theMember = memberService.findMemberByEmail();
 
         Topo theTopo = new Topo();
         theModel.addAttribute("topo",theTopo);

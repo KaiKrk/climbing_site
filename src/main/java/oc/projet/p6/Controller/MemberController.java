@@ -97,7 +97,6 @@ public class MemberController {
         // set employee as a model attribute to pre-populate the form
         theModel.addAttribute("member", theMember);
 
-        // send over to our form
         return "promote-form";
     }
 

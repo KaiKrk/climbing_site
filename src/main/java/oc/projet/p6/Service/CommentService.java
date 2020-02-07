@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface CommentService {
 
-    public List <Comment> findById(int theId);
-
     public void save(Comment theComment);
 
     public void deleteById(int theId);
+
+    List<Comment> findAllByTopo(int topoId);
 }

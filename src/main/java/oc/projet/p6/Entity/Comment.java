@@ -1,7 +1,5 @@
 package oc.projet.p6.Entity;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,19 +8,60 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "comment_id")
     private int id;
 
     @Column(name = "comment")
-    private String comment;
+    private String commentaire;
 
-    @Column(name = "member_id")
-    private int memberId;
+    @ManyToOne
+    @JoinColumn(name = "member_id", referencedColumnName = "user_id")
+    private Member member;
 
-
-    @Column(name = "comment_status")
-    private String commentStatus;
 
     @ManyToOne
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", comment='" + commentaire + '\'' +
+                ", member=" + member +
+                ", topo=" + topo +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public Topo getTopo() {
+        return topo;
+    }
+
+    public void setTopo(Topo topo) {
+        this.topo = topo;
+    }
 }

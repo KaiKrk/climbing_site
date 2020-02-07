@@ -15,16 +15,7 @@ public class CommentServiceImpl implements CommentService{
     @Autowired
     private CommentRepository commentRepository;
 
-//    @Override
-//    public List<Comment> findById(int theId) {
-//        return commentRepository.findById(theId);
-//    }
 
-    @Override
-    public List<Comment> findById(int theId) {
-        return null;
-        // find by id of topo not of comment
-    }
 
     @Override
     public void save(Comment theComment) {
@@ -35,5 +26,10 @@ public class CommentServiceImpl implements CommentService{
     public void deleteById(int theId) {
         commentRepository.deleteById(theId);
 
+    }
+
+    @Override
+    public List<Comment> findAllByTopo(int topoId) {
+        return commentRepository.findAllByTopo(topoId);
     }
 }

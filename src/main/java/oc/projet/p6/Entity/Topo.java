@@ -1,5 +1,7 @@
 package oc.projet.p6.Entity;
 
+import org.codehaus.groovy.reflection.CacheAccessControlException;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -31,13 +33,9 @@ public class Topo {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private Member member;
 
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
+   @OneToMany(cascade = CascadeType.ALL)
+   @JoinColumn(name = "topo_id")
+   private List<Comment> comments;
 
     @OneToOne(mappedBy = "topo", fetch = FetchType.LAZY)
     private Reservation reservation;
@@ -46,8 +44,7 @@ public class Topo {
     @JoinColumn(name="topo_id")
     private List<Sector> sectors;
 
-    @OneToMany( cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="topo")
-    private List<Comment> comments;
+
 
     public List<Comment> getComments() {
         return comments;
@@ -79,6 +76,13 @@ public class Topo {
 //    public void setUserId(int userId) {
 //        this.userId = userId;
 //    }
+public Member getMember() {
+    return member;
+}
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public Topo() {
     }
