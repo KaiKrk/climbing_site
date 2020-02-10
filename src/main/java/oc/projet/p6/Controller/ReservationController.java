@@ -61,7 +61,8 @@ public class ReservationController {
     public String save(@ModelAttribute("reservation") Reservation reservation) {
         String status = "Indisponible";
         reservationService.save(reservation);
-        Topo theTopo = topoService.findById(reservation.getTopo().getId());
+//        Topo theTopo = topoService.findById(reservation.getTopo().getId());
+        Topo theTopo = reservation.getTopo();
         theTopo.setTopoStatus(status);
         topoService.save(theTopo);
         return "redirect:/welcome";
@@ -115,7 +116,9 @@ public class ReservationController {
             System.out.println("decline confirm" + "id = " +reservationId);
             Reservation reservation = reservationService.findById(reservationId);
             reservation.getTopo().setTopoStatus("Disponible");
-            reservationService.deleteById(reservationId);
+
+            reservationService.save(reservation);
+            //reservationService.deleteById(reservationId);
         }
 
         System.out.println("out");

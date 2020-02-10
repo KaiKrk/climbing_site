@@ -28,7 +28,7 @@ public class Reservation {
     @Column(name = "user_id")
     private int userId;
 
-    @OneToOne( fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
 

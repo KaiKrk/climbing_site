@@ -20,4 +20,6 @@ public interface TopoService {
     public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region);
 
     public List<Topo> findAllByTopoStatus(String status);
+
+    public List<Topo> findAllTopos();
 }

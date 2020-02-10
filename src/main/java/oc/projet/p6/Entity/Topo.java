@@ -26,7 +26,25 @@ public class Topo {
     @Column(name = "topo_status")
     private String topoStatus;
 
-//    @Column(name = "user_id")
+    @OneToOne(mappedBy = "topo")
+    private TopoFile topoFile;
+
+    public TopoFile getTopoFile() {
+        return topoFile;
+    }
+
+    public void setTopoFile(TopoFile topoFile) {
+        this.topoFile = topoFile;
+    }
+    //    @Column(name = "user_id")
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
 //    private int userId;
 
     @ManyToOne
@@ -37,8 +55,8 @@ public class Topo {
    @JoinColumn(name = "topo_id")
    private List<Comment> comments;
 
-    @OneToOne(mappedBy = "topo", fetch = FetchType.LAZY)
-    private Reservation reservation;
+    @OneToMany(mappedBy = "topo")
+    private List<Reservation> reservation;
 
     @OneToMany( cascade=CascadeType.ALL)
     @JoinColumn(name="topo_id")
@@ -95,13 +113,6 @@ public Member getMember() {
         this.id = id;
     }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
 
     public String getNameTopo() {
         return nameTopo;

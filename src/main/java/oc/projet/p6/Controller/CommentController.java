@@ -16,10 +16,11 @@ public class CommentController {
     CommentService commentService;
 
     @PostMapping("save")
-    public String save(@ModelAttribute Comment comment){
-
+    public String save(@ModelAttribute Comment comment ){
         commentService.save(comment);
-        return "redirect:/topo/list";
+        int id = comment.getTopo().getId();
+
+        return "redirect:/topo/detail?id=" + id;
     }
 
 }

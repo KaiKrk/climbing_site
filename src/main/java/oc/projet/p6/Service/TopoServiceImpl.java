@@ -66,4 +66,9 @@ public class TopoServiceImpl implements TopoService {
     public List<Topo> findAllByTopoStatus(String status) {
         return topoRepository.findAllByTopoStatus(status);
     }
+
+    @Override
+    public List<Topo> findAllTopos() {
+        return topoRepository.findAllTopos();
+    }
 }

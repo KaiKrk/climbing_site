@@ -38,7 +38,6 @@ public class TopoController {
         List<Topo> theTopo = topoService.findAll();
         theModel.addAttribute("topos", theTopo);
 
-        System.out.println(theTopo.toString() + "AAAAA");
 
         return "Topo/topo-list";
     }
@@ -69,10 +68,6 @@ public class TopoController {
         comment.setTopo(theTopo);
         theModel.addAttribute("comment", comment);
 
-
-//        System.out.println(theTopo.toString());
-//        System.out.println("Et");
-//        System.out.println(theTopo.getSectors().toString());
         return "/Topo/topo-detail"; //form of the page showing the list of topos
     }
 
@@ -116,7 +111,8 @@ public class TopoController {
         theTopo.setTopoStatus(available);
         topoService.save(theTopo);
 
-        reservationService.deleteById(theId);
+        reservationService.save(reservation);
+      // reservationService.deleteById(theId);
 
         return "redirect:/reservations/myReservation";
     }
