@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Member</title>
+</head>
+<body>
+<div class ="container">
+    <div class="card mt-5">
+        <div class="card-body">
+<form th:action="@{/comments/save}"
+      th:object="${comment}" method="POST" sec:authorize="isAuthenticated()">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="comment" >Ajouter un Commentaire</label>
+    <input type="text" th:field="*{commentaire}" id="comment"
+           class="form-control mb-4 col-4" placeholder="commentaire">
+
+    <input type="hidden" th:field="*{member.id}" id="author"
+           class="form-control mb-4 col-4" placeholder="author">
+
+    <input type="hidden" th:field="*{topo.id}" id="topo"
+           class="form-control mb-4 col-4" placeholder="topo">
+
+    <button type="submit" class="btn btn-info col-2">Save</button>
+
+</form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

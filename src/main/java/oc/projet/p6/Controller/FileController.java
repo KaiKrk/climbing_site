@@ -2,7 +2,6 @@ package oc.projet.p6.Controller;
 
 import oc.projet.p6.Entity.TopoFile;
 import oc.projet.p6.Service.TopoFileStorageService;
-import oc.projet.p6.UploadFileResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,47 +10,47 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.io.IOException;
 
-@RestController
+/**
+ * Classe Controller des fichiers de topo
+ */
+@Controller
 public class FileController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileController.class);
+
+     Logger logger = LoggerFactory.getLogger(FileController.class);
 
     @Autowired
     private TopoFileStorageService topoFileStorageService;
 
+    /**
+     * methode qui insert dans la bdd le fichier d'un topo
+     * @param file
+     * @param id
+     * @return
+     * @throws IOException
+     */
     @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        TopoFile dbFile = topoFileStorageService.storeFile(file);
+    public String uploadFile(@RequestParam("file") MultipartFile file, int id) throws IOException {
+            topoFileStorageService.storeFile(file, id);
+            logger.info("File Uploaded :" + file.getName());
+        return "redirect:/topo/myTopoDetail?id=" + id ;
 
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(dbFile.getId())
-                .toUriString();
-
-        return new UploadFileResponse(dbFile.getFileName(), fileDownloadUri,
-                file.getContentType(), file.getSize());
     }
 
-//    @PostMapping("/uploadMultipleFiles")
-//    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
-//        return Arrays.asList(files)
-//                .stream()
-//                .map(file -> uploadFile(file))
-//                .collect(Collectors.toList());
-//    }
-
-    @GetMapping("/downloadFile/{fileId}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) {
-        // Load file from database
-        TopoFile dbFile = topoFileStorageService.getFile(fileId);
+    /**
+     * methode qui telecharge le fichier d'un topo
+     * @param id
+     * @return
+     */
+    @GetMapping("/downloadFile")
+    public ResponseEntity<Resource> downloadFile(@RequestParam int id) {
+        TopoFile dbFile = topoFileStorageService.getFile(id);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(dbFile.getFileType()))

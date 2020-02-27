@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collection;
 
+/**
+ * classe contenant les methodes de login des membres inscrit au site
+ */
 @Service
 @Transactional
 public class CustomMemberDetailsService implements UserDetailsService {
@@ -29,8 +32,9 @@ public class CustomMemberDetailsService implements UserDetailsService {
     }
 
     private static Collection<? extends GrantedAuthority> getAuthorities(Member member) {
-        String[] memberRoles = member.getRoles().stream().map((role) -> member.getName()).toArray(String[]::new);
+        String[] memberRoles = member.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
         Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(memberRoles);
+        System.out.println(authorities);
         return authorities;
     }
 }

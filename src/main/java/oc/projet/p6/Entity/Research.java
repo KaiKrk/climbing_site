@@ -1,5 +1,8 @@
 package oc.projet.p6.Entity;
 
+/**
+ * Entite Research, correspond a l'entite cree lors d'une recherche multicritere pour selectionner les mots cles
+ */
 public class Research {
 
     private String country;

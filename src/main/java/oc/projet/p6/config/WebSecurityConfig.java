@@ -1,7 +1,6 @@
 package oc.projet.p6.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 
@@ -50,10 +48,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         		.frameOptions().sameOrigin()
         		.and()
             .authorizeRequests()
-            	.antMatchers("/resources/**", "/webjars/**","/assets/**").permitAll()
-                .antMatchers("/").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().authenticated()
+				.antMatchers("/resources/**", "/webjars/**","/assets/**").permitAll()
+				.antMatchers("/topo/**","/reservations/**","/research/**","/members/list", "/members/showFormForUpdate","/members/showFormForPromote",
+						"/members/promote", "/sectors/**" ,"/topo/**","/ways/**").authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")

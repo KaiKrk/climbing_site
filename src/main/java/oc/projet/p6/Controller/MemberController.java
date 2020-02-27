@@ -3,6 +3,8 @@ package oc.projet.p6.Controller;
 import oc.projet.p6.Dao.RoleRepository;
 import oc.projet.p6.Entity.Member;
 import oc.projet.p6.Service.MemberService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,9 +14,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Classe Controller des membres
+ */
 @Controller
 @RequestMapping("/members") // "/admin/members"
 public class MemberController {
+
+    Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
     @Autowired
     private MemberService memberService;
@@ -25,87 +32,85 @@ public class MemberController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // add mapping for "/list"
-
+    /**
+     * methode ajoute au model la liste de membres et renvoie un page de tous les membres
+     * @param theModel
+     * @return
+     */
     @GetMapping("/list")
     public String listContact(Model theModel) {
-
-        // get employees from db
         List<Member> theMember = memberService.findAll();
-
-        // add to the spring model
         theModel.addAttribute("members", theMember);
-        //System.out.println(theMember);
         return "member-list";
     }
 
+    /**
+     * methode qui retourne la page d'inscription d'un membre
+     * @param theModel
+     * @return
+     */
     @GetMapping("/register")
     public String showFormForAdd(Model theModel) {
-        // create model attribute to bind form data
         Member theMember = new Member();
-
+        theMember.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
         theModel.addAttribute("member", theMember);
-
-        return "member-form";
+        return "forms/registration-form";
     }
 
+    /**
+     * methode qui retourne la page de mis a jour d'un membre
+     * @param theId
+     * @param theModel
+     * @return
+     */
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("id") int theId,
                                     Model theModel) {
-
-        // get the employee from the service
         Member theMember = memberService.findById(theId);
-
-        // set employee as a model attribute to pre-populate the form
         theModel.addAttribute("member", theMember);
-
-        // send over to our form
-        return "member-form";
+        return "forms/member-form";
     }
 
-
+    /**
+     * methode qui insert ou update un membre
+     * @param theMember
+     * @return
+     */
     @PostMapping("/save")
     public String saveMember(@ModelAttribute("member") Member theMember) {
         theMember.setPassword(passwordEncoder.encode(theMember.getPassword()));
-        theMember.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
-        // save the employee
-        System.out.println(theMember.toString());
+         logger.info("member : "+theMember.toString() + " saved as User");
         memberService.save(theMember);
 
-        // use a redirect to prevent duplicate submissions
-        return "redirect:/members/list";
+        return "redirect:/login";
     }
 
-
-    @GetMapping("/delete")
-    public String delete(@RequestParam("id") int theId) {
-
-        // delete the employee
-        memberService.deleteById(theId);
-
-        // redirect to /employees/list
-        return "redirect:/members/list";
-
-    }
+    /**
+     * methode qui retourne la page pour promouvoir un membre
+     * @param theId
+     * @param theModel
+     * @return
+     */
     @GetMapping("/showFormForPromote")
     public String showFormForPromote(@RequestParam("id") int theId,
                                     Model theModel) {
-
-        // get the employee from the service
         Member theMember = memberService.findById(theId);
-
-        // set employee as a model attribute to pre-populate the form
         theModel.addAttribute("member", theMember);
-
-        return "promote-form";
+        return "forms/promote-form";
     }
 
+    /**
+     * methode pour promouvoir et update un membre
+     * @param theMember
+     * @return
+     */
     @PostMapping("/promote")
     public String promote(@ModelAttribute("member") Member theMember){
+
         theMember.setRoles(Arrays.asList(roleRepository.findByName("ROLE_ADMIN")));
-        System.out.println(theMember.toString());
-        // save the employee
+        logger.info("Member " + theMember.getName() + " saved as Admin");
         memberService.save(theMember);
+
         return "redirect:/members/list";
     }
 }

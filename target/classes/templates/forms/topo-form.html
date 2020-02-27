@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Adding Topo</title>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card my-auto">
+        <div class="card-header">
+            <h2>Ajouter un Topo</h2>
+            <div class="card-body">
+                <hr>
+
+                <form th:action="@{/topo/save}"
+                      th:object="${topo}" method="POST">
+
+                    <!-- Add hidden form field to handle update -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <label for="nameTopo">Nom du Topo</label>
+                    <input type="text" th:field="*{nameTopo}" id="nameTopo"
+                           class="form-control mb-4 col-4" placeholder="name">
+
+                    <label for="country">Pays</label>
+                    <input type="text" th:field="*{country}" id="country"
+                           class="form-control mb-4 col-4" placeholder="country">
+
+                    <label for="region">Region</label>
+                    <input type="text" th:field="*{region}" id="region"
+                           class="form-control mb-4 col-4" placeholder="region">
+
+                    <label for="statut">Statut du Topo</label>
+<!--                    <input type="text" th:field="*{topoStatus}" id="statut"-->
+<!--                           class="form-control mb-4 col-4" placeholder="statut">-->
+                    <select class="form-control mb-4 col-4" th:field="*{topoStatus}" id="statut">
+                        <option value="Disponible">Disponible</option>
+                        <option value="Indisponible">Indisponible</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-info col-2">Save</button>
+
+                </form>
+
+                <hr>
+                <a onclick="history.back()" class="btn btn-info col-2"> Retour </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+

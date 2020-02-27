@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface SectorService {
 
-    public Sector findById(int theId);
+    Sector findById(int theId);
 
-    public void save(Sector theSector);
+    void save(Sector theSector);
 
-    public void deleteById(int theId);
+    boolean isConnectedMemberTheAuthor(int sectorId);
+
+
 }

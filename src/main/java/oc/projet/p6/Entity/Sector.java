@@ -1,14 +1,11 @@
 package oc.projet.p6.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+/**
+ * entite secteur, lie a un topo et contenant des voies
+ */
 @Entity
 @Table(name = "sector")
 public class Sector {
@@ -23,7 +20,9 @@ public class Sector {
 
     @Column(name = "sector_status")
     private String sectorStatus;
-
+    /**
+     * topo contenant ce secteur
+     */
     @ManyToOne
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
@@ -35,17 +34,6 @@ public class Sector {
     public void setTopo(Topo topo) {
         this.topo = topo;
     }
-////    @Column(name = "topo_id")
-////
-//
-//
-//    public int getTopoId() {
-//        return topoId;
-//    }
-//
-//    public void setTopoId(int topoId) {
-//        this.topoId = topoId;
-//    }
 
     @OneToMany( cascade=CascadeType.ALL)
     @JoinColumn(name="sector_id")

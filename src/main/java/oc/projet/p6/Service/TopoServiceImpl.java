@@ -3,11 +3,16 @@ package oc.projet.p6.Service;
 import oc.projet.p6.Dao.TopoRepository;
 import oc.projet.p6.Entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Classe Service des Topos
+ */
 @Service
 public class TopoServiceImpl implements TopoService {
 
@@ -16,59 +21,78 @@ public class TopoServiceImpl implements TopoService {
 
     @Autowired
     private TopoRepository topoRepository;
+
+    /**
+     * Methode qui retourne tous les topos
+     * @return List de tous les topos
+     */
     @Override
     public List<Topo> findAll() {
         return topoRepository.findAll();
     }
 
-
+    /**
+     * methode qui retourne un topo selon son id
+     * @param theId
+     * @return
+     */
     @Override
     public Topo findById(int theId) {
-        Optional<Topo> resultTopo = topoRepository.findById(theId);
-        Topo theTopo = null;
-        if (resultTopo.isPresent()) {
-            theTopo = resultTopo.get();
-        }
-        else {
-            // we didn't find the employee
-            throw new RuntimeException("Did not find member id - " + theId);
-        }
+        Topo theTopo = topoRepository.findById(theId);
         return theTopo;
     }
 
+    /**
+     * methode qui insert ou update un topo en bdd
+     * @param theTopo
+     */
     @Override
     public void save(Topo theTopo) { topoRepository.save(theTopo);
 
     }
 
-    @Override
-    public void deleteById(int theId) { topoRepository.deleteById(theId);
-
-    }
-
-//    @Override
-//    public List<Topo> findByUser(int userId) {
-//        Query results =  entityManager.createQuery("From Topo t where t.user_id = '" + userId +"'");
-//        List topoResults = results.getResultList();
-//        List<Topo> topos = topoResults;
-//        System.out.println(results);
-//        return topos;
-//    }
+    /**
+     * methode qui retourne tous les topos d'un utilisateur
+     * @param userId
+     * @return
+     */
     @Override
     public List<Topo> findAllByMemberId(int userId){ return topoRepository.findAllByMemberId(userId);
 
     }
 
+    /**
+     * methode qui retourne tous les topos ayant comme country et region les parametres
+     * @param country
+     * @param region
+     * @return
+     */
     public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region) {
         return topoRepository.findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(country, region);}
 
+    /**
+     * methode qui retourne une list de topo selon son statut
+     * @param status
+     * @return
+     */
     @Override
     public List<Topo> findAllByTopoStatus(String status) {
         return topoRepository.findAllByTopoStatus(status);
     }
 
+
     @Override
-    public List<Topo> findAllTopos() {
-        return topoRepository.findAllTopos();
+    public void changeAvaibility(Topo topo,String status) {
+        topo.setTopoStatus(status);
+    }
+
+    @Override
+    public boolean isConnectedMemberTheAuthor(int topoId) {
+        Topo topo = topoRepository.findById(topoId);
+        if (topo.getMember().getEmail().equals(SecurityContextHolder.getContext().getAuthentication().getName())){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

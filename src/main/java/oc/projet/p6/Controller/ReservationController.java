@@ -1,24 +1,25 @@
 package oc.projet.p6.Controller;
 
-import oc.projet.p6.Entity.Member;
-import oc.projet.p6.Entity.Reservation;
-import oc.projet.p6.Entity.Topo;
+import oc.projet.p6.Entity.*;
 import oc.projet.p6.Service.MemberService;
 import oc.projet.p6.Service.ReservationService;
 import oc.projet.p6.Service.TopoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe Controller des Reservations
+ */
 @Controller
 @RequestMapping("/reservations")
 public class ReservationController {
-
+    Logger logger = LoggerFactory.getLogger(WelcomeController.class);
     @Autowired
     private TopoService topoService;
 
@@ -28,97 +29,109 @@ public class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
-    String statutPending = "En Attente";// a mettre dans une enum
-    String statutAccepted = "Accepte";
-    String statutDeclined = "Rejete";
-
+    /**
+     * methode qui retourne une page avec tous les topos disponible
+     * @param theModel
+     * @return
+     */
     @GetMapping("/reservation")
     public String reservationList(Model theModel){
-        String status = "Disponible"; // a mettre dans une enum
+        String status = DisponibiliteStatus.Disponible.toString();
         List<Topo> availableTopo = topoService.findAllByTopoStatus(status);
         theModel.addAttribute("topos", availableTopo);
-        return "reservation-list";
+        return "reservation/reservation-list";
     }
 
+    /**
+     * methode qui retourne la page pour confirmer une reservation
+     * @param theId
+     * @param theModel
+     * @return
+     */
     @GetMapping("/confirmReservation")
     public String confirm(@RequestParam("id") int theId, Model theModel){
         Reservation reservation = new Reservation();
+        String statut = ReservationStatus.EnAttente.toString();
         Topo theTopo = topoService.findById(theId);
-        //       theTopo.setTopoStatus("Indisponible");
-//        reservation.setTopo();
-  //      reservation.setOwnerId(theTopo.getMember().getId());
-
         Member theMember = memberService.findMemberByEmail();
         reservation.setTopo(theTopo);
-        reservation.setUserId(theMember.getId());
-        reservation.setReservationStatus("En Attente");
+        reservation.setBorrowingMember(theMember);
+        reservation.setReservationStatus(statut);
         theModel.addAttribute("reservation" ,reservation);
 
-        return "confirmation-reservation";
+        return "reservation/confirmation-reservation";
     }
 
+    /**
+     * methode qui enregistre une reservation et redirige vers l'accueil
+     * @param reservation
+     * @return
+     */
     @PostMapping("save")
     public String save(@ModelAttribute("reservation") Reservation reservation) {
-        String status = "Indisponible";
+        Topo theTopo = topoService.findById(reservation.getTopo().getId());
+        Member theMember = memberService.findMemberByEmail();
+        String reservationStatut = ReservationStatus.EnAttente.toString();
+        String topoStatut = DisponibiliteStatus.Indisponible.toString();
+        reservation.setTopo(theTopo);
+        reservation.setBorrowingMember(theMember);
+        reservation.setReservationStatus(reservationStatut);
+        reservation.setOwnerMember(theTopo.getMember());
+        System.out.println("avant le save " + reservation.toString());
         reservationService.save(reservation);
-//        Topo theTopo = topoService.findById(reservation.getTopo().getId());
-        Topo theTopo = reservation.getTopo();
-        theTopo.setTopoStatus(status);
+       //  Topo theTopo = reservation.getTopo();
+        topoService.changeAvaibility(theTopo,topoStatut);
         topoService.save(theTopo);
-        return "redirect:/welcome";
+        logger.info("Reservation on Topo :" +reservation.getTopo().getNameTopo()+ " by Member : "+ reservation.getBorrowingMember().getName() );
+        return "redirect:/home";
     }
 
+    /**
+     * methode qui retourne la page avec les demandes de reservation ainsi que les topos empruntes
+     * @param theModel
+     * @return
+     */
     @GetMapping("/myReservation")
     public String showReservation(Model theModel){
-        //Demande de reservations
         Member theMember = memberService.findMemberByEmail();
+        String statusAttente = ReservationStatus.EnAttente.toString();
+        String statusAccept = ReservationStatus.Accepte.toString();
         int theId = theMember.getId();
         System.out.println(theId);
-
-        String st = "En Attente";
-        System.out.println("-----------------------------------------------------");
-        List<Reservation> reservations = reservationService.findAllByOwnerIdAndReservationStatusIgnoreCaseContaining(theId, statutPending);
-        System.out.println("-----------------------------------------------------");
-        List<Reservation> queryreservation = reservationService.findAllReservation(theId, statutPending);
-        System.out.println("-----------------------------------------------------");
-        System.out.println("1 " +reservations);
-        System.out.println(st);
-        System.out.println("2" + queryreservation);
+        List<Reservation> queryreservation = reservationService.findAllByOwnerMemberAndReservationStatusIgnoreCaseContaining(theMember, statusAttente);
         theModel.addAttribute("reservation", queryreservation);
-        //Topo Empruntes
-
-        List<Reservation> topoReserve = reservationService.findAllByUserIdAndReservationStatusIgnoreCaseContaining(theId, statutAccepted);
-        System.out.println(topoReserve.toString()); // check
-//        List<Topo> topos = new ArrayList<>();
-//        for (Reservation reservation: topoReserve
-//             ) {
-//            Topo theTopo = topoService.findById(reservation.getTopo().getId());
-//            topos.add(theTopo);
-//            System.out.println(" B "+ theTopo.toString()); // check
-//        }
-//        theModel.addAttribute("topos", topos);
-
+        List<Reservation> topoReserve = reservationService.findAllByBorrowingMemberAndReservationStatusIgnoreCaseContaining(theMember, statusAccept);
        theModel.addAttribute("topos", topoReserve);
         return "reservation/reservation-personnal";
     }
 
 
-
+    /**
+     * methode qui manage l'acceptance ou le refus d'une demande de reservation
+     * @param action
+     * @param reservationId
+     * @return
+     */
     @GetMapping("/management")
     public String allowReservation(@RequestParam(value = "action" , required = false) String action, @RequestParam(value = "id") int reservationId){
+        String statusAccept = ReservationStatus.Accepte.toString();
+        String statusDecline = ReservationStatus.Refusee.toString();
+        String disponible = DisponibiliteStatus.Disponible.toString();
+
         if (action.equalsIgnoreCase("accept")){
             System.out.println("accept confirm" + "id = " +reservationId);
+            logger.info("Reservation with id : "+ reservationId + " is accepted");
             Reservation reservation = reservationService.findById(reservationId);
-            reservation.setReservationStatus(statutAccepted);
+            reservationService.changeStatus(reservation,statusAccept);
             reservationService.save(reservation);
 
         } else if (action.equalsIgnoreCase("decline")){
             System.out.println("decline confirm" + "id = " +reservationId);
+            logger.info("Reservation with id : "+ reservationId + " is declined");
             Reservation reservation = reservationService.findById(reservationId);
-            reservation.getTopo().setTopoStatus("Disponible");
-
+            reservationService.changeStatus(reservation,statusDecline);
+            topoService.changeAvaibility(reservation.getTopo(),disponible);
             reservationService.save(reservation);
-            //reservationService.deleteById(reservationId);
         }
 
         System.out.println("out");

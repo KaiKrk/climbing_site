@@ -2,6 +2,9 @@ package oc.projet.p6.Entity;
 
 import javax.persistence.*;
 
+/**
+ * Entite Reservation, correspond a un reservation par un membre d'un topo disponible
+ */
 @Entity
 @Table(name = "reservation")
 public class Reservation {
@@ -14,20 +17,23 @@ public class Reservation {
     @Column(name = "reservation_status")
     private String reservationStatus;
 
-    public int getOwnerId() {
-        return ownerId;
-    }
+    /**
+     * membre emprunteur du topo
+     */
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "member_id")
+    private Member borrowingMember;
 
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
-    }
+    /**
+     * membre proprietaire du topo
+     */
+    @ManyToOne
+    @JoinColumn(name = "owner_id", referencedColumnName = "member_id")
+    private Member ownerMember;
 
-    @Column(name = "owner_id")
-    private int ownerId;
-
-    @Column(name = "user_id")
-    private int userId;
-
+    /**
+     * topo voulant etre reserve par le membre emprunteur
+     */
     @ManyToOne
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
@@ -36,31 +42,24 @@ public class Reservation {
         return topo;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "reservationId=" + id +
-                ", reservationStatus='" + reservationStatus + '\'' +
-                ", ownerId=" + ownerId +
-                ", userId=" + userId +
-                ", topo=" + topo +
-                '}';
-    }
+
 
     public void setTopo(Topo topo) {
         this.topo = topo;
     }
-//
-//    @Column(name = "topo_id")
-//    private int topoId;
 
     public Reservation() {
     }
 
-    public Reservation(String reservationStatus, int userId, int topoId) {
-        this.reservationStatus = reservationStatus;
-        this.userId = userId;
-//        this.topoId = topoId;
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", reservationStatus='" + reservationStatus + '\'' +
+                ", borrowingMember=" + borrowingMember +
+                ", ownerMember=" + ownerMember +
+                ", topo=" + topo +
+                '}';
     }
 
     public int getId() {
@@ -79,19 +78,19 @@ public class Reservation {
         this.reservationStatus = reservationStatus;
     }
 
-    public int getUserId() {
-        return userId;
+    public Member getBorrowingMember() {
+        return borrowingMember;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setBorrowingMember(Member borrowingMember) {
+        this.borrowingMember = borrowingMember;
     }
-//
-//    public int getTopoId() {
-//        return topoId;
-//    }
-//
-//    public void setTopoId(int topoId) {
-//        this.topoId = topoId;
-//    }
+
+    public Member getOwnerMember() {
+        return ownerMember;
+    }
+
+    public void setOwnerMember(Member ownerMember) {
+        this.ownerMember = ownerMember;
+    }
 }

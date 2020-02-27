@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface CommentService {
 
-    public void save(Comment theComment);
+    Comment findById(int id);
 
-    public void deleteById(int theId);
+    void save(Comment theComment);
+
+    void deleteById(int theId);
 
     List<Comment> findAllByTopo(int topoId);
 }

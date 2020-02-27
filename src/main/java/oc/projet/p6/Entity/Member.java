@@ -1,19 +1,18 @@
 package oc.projet.p6.Entity;
 
-import lombok.Data;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ *Entite membre, correspond a un utilisateur enregistré du site
+ */
 @Entity
 @Table(name = "member")
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "member_id")
     private int id;
 
     @Column(name = "name")
@@ -34,8 +33,22 @@ public class Member {
     @Column(name = "password")
     private String password;
 
+    /**
+     *Liste des Topos personels
+     */
     @OneToMany( cascade=CascadeType.ALL,  mappedBy = "member")
     private List<Topo> topos;
+
+    /**
+     * Roles de l'utilisateur, User ou Admin
+     */
+    @ManyToMany(cascade=CascadeType.MERGE)
+    @JoinTable(
+            name="member_role",
+            joinColumns={@JoinColumn(name="MEMBER_ID", referencedColumnName="member_id")},
+            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+    private List<Role> roles;
+
 
     public List<Topo> getTopos() {
         return topos;
@@ -44,13 +57,6 @@ public class Member {
     public void setTopos(List<Topo> topos) {
         this.topos = topos;
     }
-
-    @ManyToMany(cascade=CascadeType.MERGE)
-    @JoinTable(
-            name="member_role",
-            joinColumns={@JoinColumn(name="MEMBER_ID", referencedColumnName="user_id")},
-            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
-    private List<Role> roles;
 
     public List<Role> getRoles() {
         return roles;

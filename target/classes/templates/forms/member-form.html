@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Member</title>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card my-auto">
+        <div class="card-header">
+            <h2>Inscritpion</h2>
+            <div class="card-body">
+                <hr>
+
+                <form th:action="@{/members/save}"
+                      th:object="${member}" method="POST">
+
+                    <!-- Add hidden form field to handle update -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <label for="name">Nom</label>
+                    <input type="text" th:field="*{name}" id="name"
+                           class="form-control mb-4 col-4" placeholder="name">
+
+                    <label for="surname">Prenom</label>
+                    <input type="text" th:field="*{surname}" id="surname"
+                           class="form-control mb-4 col-4" placeholder="surname">
+
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{email}" id="email"
+                           class="form-control mb-4 col-4" placeholder="Email">
+
+                    <label for="password">Mot de Passe</label>
+                    <input type="text" th:field="*{password}" id="password"
+                           class="form-control mb-4 col-4" placeholder="password">
+
+                    <label for="country">Pays</label>
+                    <input type="text" th:field="*{country}" id="country"
+                           class="form-control mb-4 col-4" placeholder="country">
+
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" th:field="*{pseudo}" id="pseudo"
+                           class="form-control mb-4 col-4" placeholder="Pseudo">
+
+                    <button type="submit" class="btn btn-info col-2">Save</button>
+
+                </form>
+
+                <a th:href="@{/}">Retour a L'Accueil</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

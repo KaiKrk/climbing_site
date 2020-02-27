@@ -2,8 +2,11 @@ package oc.projet.p6.Entity;
 
 import javax.persistence.*;
 
+/**
+ *  Entite Comment qui correspond a un commentaire d'un utilisateur sur un site
+ */
 @Entity
-@Table(name = "comment")
+@Table(name = "comments")
 public class Comment {
 
     @Id
@@ -11,27 +14,28 @@ public class Comment {
     @Column(name = "comment_id")
     private int id;
 
+    /**
+     * contenu du commentaire
+     */
     @Column(name = "comment")
     private String commentaire;
 
+
+    /**
+     * Auteur du commentaire
+     */
     @ManyToOne
-    @JoinColumn(name = "member_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "member_id", referencedColumnName = "member_id")
     private Member member;
 
-
+    /**
+     *le topo dans lequel le commantaire est soumis
+     */
     @ManyToOne
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", comment='" + commentaire + '\'' +
-                ", member=" + member +
-                ", topo=" + topo +
-                '}';
-    }
+
 
     public int getId() {
         return id;

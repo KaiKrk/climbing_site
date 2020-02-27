@@ -4,21 +4,28 @@
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div th:replace="fragments/header :: header">...</div>
 <head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/34cc58e3e8.js" crossorigin="anonymous"></script>
+
     <title>Liste des Topos</title>
 </head>
 <body>
 <div class ="container">
-    <div class="card">
-        <div class="card-body">
-            <table class="table">
+    <div class="row ">
+    <div class="card mt-5 col-12 ">
+        <div class="card-body ">
+            <div class="table-responsive">
+            <table class="table  col-12">
                 <thead class="thead-dark">
                 <tr>
                     <th>Nom du Topo</th>
                     <th>Disponibilite</th>
                     <th>Region</th>
                     <th>Country</th>
+                    <th>Topo Officiel</th>
+                    <th>Date de Parution</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -30,12 +37,24 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
                     <td th:text="${tempTopo.country}"/>
 
                     <td>
+                        <span th:if="${tempTopo.official == true}">
+                            <i class="fas fa-mountain"></i>
+                        </span>
+                        <span th:unless="${tempTopo.official == false }"></span>
+                    </td>
+                    <td th:text="${tempTopo.releaseDate}"/>
+
+                    <td>
                         <!-- Add "update" button/link -->
                         <a th:href="@{/topo/detail(id=${tempTopo.id})}"
                            class="btn btn-info btn-sm">
                             Detail
 
                         </a>
+                        <a th:href="@{/topo/officiel(id=${tempTopo.id})}" class="btn btn-warning btn-sm">
+                            Topo officiel
+                        </a>
+
                 </tr>
 
                 </tbody>
@@ -46,7 +65,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
             </a>
         </div>
     </div>
-
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </div>
 </body>
 </html>

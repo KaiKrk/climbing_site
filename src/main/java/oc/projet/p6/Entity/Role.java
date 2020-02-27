@@ -1,11 +1,12 @@
 package oc.projet.p6.Entity;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.List;
 
-
+/**
+ * role defini a un membre par defaut : User
+ */
 @Entity
 @Table(name="roles")
 public class Role
@@ -32,6 +33,15 @@ public class Role
 	public String getName()
 	{
 		return name;
+	}
+
+	@Override
+	public String toString() {
+		return "Role{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", members=" + members +
+				'}';
 	}
 
 	public void setName(String name)

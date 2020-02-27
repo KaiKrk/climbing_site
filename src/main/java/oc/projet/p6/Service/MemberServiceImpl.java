@@ -15,6 +15,9 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Classe Service des Membres
+ */
 @Service
 public class MemberServiceImpl implements MemberService {
 
@@ -23,39 +26,48 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberRepository memberRepository;
-	
+
+	/**
+	 * methode qui retourne tous les membres
+	 * @return List de tous les membres
+	 */
 	@Override
 	public List<Member> findAll() {
 		return memberRepository.findAllMemberByOrderByIdAsc();
 	}
 
+	/**
+	 * methode qui retourne un membre selon son id
+	 * @param theId
+	 * @return un membre
+	 */
 	@Override
 	public Member findById(int theId) {
 		return memberRepository.findMemberById(theId);
 	}
 
+	/**
+	 * methode qui insert ou update un membre en bdd
+	 * @param theMember
+	 */
 	@Override
 	public void save(Member theMember) {
 		memberRepository.save(theMember);
 	}
 
+	/**
+	 * methode qui supprime un membre de la bdd
+	 * @param theId
+	 */
 	@Override
 	public void deleteById(int theId) {
 		memberRepository.deleteById(theId);
 	}
 
-	@Override// a mettre en @Query
-	public Member findByName(){
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String currentPrincipalName = authentication.getName();
-		String hql = " From Member m where m.email='"+currentPrincipalName+"'";
-		Query query = entityManager.createQuery(hql);
-		List results = query.getResultList();
-		Member currentMember = (Member)results.get(0);
-		System.out.println(currentMember);
-		return currentMember;
-	}
-
+	/**
+	 * methode qui retourne un membre selon son email
+	 * @return un membre
+	 */
 	@Override
 	public Member findMemberByEmail() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

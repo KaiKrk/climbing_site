@@ -3,7 +3,11 @@ package oc.projet.p6.Entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
+/**
+ * Entite du fichier du topo que l'on peut upload
+ */
 @Entity
 @Table(name = "files")
 public class TopoFile {
@@ -20,6 +24,13 @@ public class TopoFile {
     @JoinColumn(name = "topo_id", referencedColumnName = "id")
     private Topo topo;
 
+    public TopoFile(String fileName, String fileType, Topo topo, byte[] data) {
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.topo = topo;
+        this.data = data;
+    }
+
     public Topo getTopo() {
         return topo;
     }
@@ -28,8 +39,10 @@ public class TopoFile {
         this.topo = topo;
     }
 
-    @Lob
+
     private byte[] data;
+
+
 
     public TopoFile() {
 

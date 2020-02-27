@@ -4,6 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <div th:replace="fragments/header :: header">...</div>
 <head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <meta charset="UTF-8">
     <title>Detail du Topo</title>
     <!-- Bootstrap CSS -->
@@ -11,7 +12,7 @@
 </head>
 <body>
 <div class ="container">
-    <div class="card">
+    <div class="card mt-5">
         <div class="card-body">
 
 
@@ -63,27 +64,31 @@
             </tbody>
             </table>
 
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nom du Fichier</th>
+                    <th>Disponibilite</th>
+                    <th>Action</th>
 
-<!--            <table class="table">-->
-<!--                <thead class="thead-dark">-->
-<!--                <tr>-->
-<!--                    <th>Commentaire</th>-->
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="tempFile : ${topoFile}" scope="col">
+                    <td th:text="${tempFile.fileName}" />
+                    <td th:text="${tempFile.topo.id}" />
+                    <td> <a th:href="@{/downloadFile(id=${tempFile.topo.id})}"
+                            class="btn btn-info btn-sm">
+                        Telecharger
+                    </a>
+                    </td>
+                    </td>
 
 
-<!--                </tr>-->
-<!--                </thead>-->
-
-<!--                <tbody>-->
-<!--                <tr th:each="tempComment : ${comment}" scope="col">-->
-<!--                    <td th:text="${tempComment.comment}" />-->
-<!--                    // how to get the pseudo of the author-->
-<!--                    <td th:text="${tempSector.pseudo}" />-->
-<!--                    <td type="hidden" th:field="*{tempComment.status}" /> // ?-->
-
-
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
+                </tr>
+                </tbody>
+            </table>
             <a class="btn btn-info" onclick="history.back()">Retour</a>
         </div>
     </div>
@@ -95,12 +100,24 @@
                 <tr>
                     <th>Commentaire</th>
                     <th>Auteur</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
+
                 <tbody>
                 <tr th:each="comments : ${comments}" scope="col">
                     <td th:text="${comments.commentaire}" />
                     <td th:text="${comments.member.name}" />
+                    <td sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a th:href="@{/comments/update(commentId=${comments.id})}"
+                           class="btn btn-info btn-sm">
+                            Update
+                        </a>
+
+                        <a th:href="@{/comments/delete(id=${comments.id}, topoId=${comments.topo.id})}"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
                 </tbody>
             </table>
                 <form th:action="@{/comments/save}"
@@ -125,6 +142,8 @@
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

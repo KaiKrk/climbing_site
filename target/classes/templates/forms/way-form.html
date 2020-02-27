@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="../../static/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Adding Topo</title>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card my-auto">
+        <div class="card-header">
+            <h2>Ajouter une Voie</h2>
+            <div class="card-body">
+                <hr>
+
+                <form th:action="@{/ways/save}"
+                      th:object="${way}" method="POST">
+
+                    <!-- Add hidden form field to handle update -->
+                    <input type="hidden" th:field="*{id}" />
+
+                    <label for="name">Nom de la Voie</label>
+                    <input type="text" th:field="*{nameWay}" id="name"
+                           class="form-control mb-4 col-4" placeholder="name">
+
+                    <label for="cotation">Cotation</label>
+<!--                    <input type="text" th:field="*{difficulty}" id="cotation"-->
+<!--                           class="form-control mb-4 col-4" placeholder="cotation">-->
+                    <select class="form-control mb-4 col-4" th:field="*{difficulty}" id="cotation">
+                        <option value="3a">3a</option>
+                        <option value="3b">3b</option>
+                        <option value="3c">3c</option>
+                        <option value="4a">4a</option>
+                        <option value="4b">4b</option>
+                        <option value="4c">4c</option>
+                        <option value="5a">5a</option>
+                        <option value="5b">5b</option>
+                        <option value="5c">5c</option>
+                        <option value="6a">6a</option>
+                        <option value="6b">6b</option>
+                        <option value="6c">6c</option>
+                        <option value="7a">7a</option>
+                        <option value="7b">7b</option>
+                        <option value="7c">7c</option>
+                        <option value="8a">8a</option>
+                        <option value="8b">8b</option>
+                        <option value="8c">8c</option>
+                        <option value="9a">9a</option>
+                        <option value="9b">9b</option>
+                        <option value="9c">9c</option>
+                    </select>
+                    <label for="point">Nombre de Point</label>
+                    <input type="text" th:field="*{points}" id="point"
+                           class="form-control mb-4 col-4" placeholder="points">
+
+                    <input type="hidden" th:field="*{sector.id}" />
+
+                    <button type="submit" class="btn btn-info col-2" name="action" value="save">Save</button>
+
+                </form>
+
+                <hr>
+                <a onclick="history.back()" class="btn btn-dark col-2"> Retour </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>

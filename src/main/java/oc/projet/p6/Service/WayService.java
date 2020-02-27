@@ -11,4 +11,6 @@ public interface WayService {
     public void save(Way theWay);
 
     public void deleteById(int theId);
+
+    boolean isConnectedMemberTheAuthor(int id);
 }

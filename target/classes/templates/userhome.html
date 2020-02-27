@@ -6,6 +6,7 @@
 <div th:replace="fragments/header :: header">...</div>
 <head>
 <title>User Home</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,27 +15,29 @@
 </head>
 <body>
 <div class ="container">
-	<div class="card">
+	<div class="card mt-5">
 		<div class="card-body">
-		<p>
-			Welcome <span sec:authentication="principal.username">User</span> Bienvenue dans votre Espace Personnel
-		</p>
-<!--		<p>-->
-<!--			<a th:href="@{/logout}">Logout</a>-->
-<!--		</p>-->
+		<h2>
+			Bienvenue dans votre Espace Personnel
+		</h2>
 
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
-			<h3>You will see this only if you are ADMIN</h3>
-			<p>
-				<a th:href="@{/admin/home}">Admin Home</a>
-			</p>
+			<h3>
+				Bonjour Administrateur <span th:text="${currentMember.getName()}"/>
+			</h3>
 		</div>
+
+			<div sec:authorize="hasRole('ROLE_USER')">
+				<h4>
+					Bonjour Utilisateur <span th:text="${currentMember.getName()}"/>
+				</h4>
+			</div>
 		</div>
 	</div>
 				<div class="card">
 					<div class="card-body">
 						<a th:href="@{/topo/myTopo}"
-						   class="btn btn-info btn-sm">
+						   class="btn btn-info  btn-lg btn-block">
 							Mes Topos
 
 						</a>
@@ -43,17 +46,8 @@
 	<div class="card">
 		<div class="card-body">
 			<a th:href="@{/reservations/myReservation}"
-			   class="btn btn-info btn-sm">
+			   class="btn btn-info  btn-lg btn-block">
 				Demande de Reservation
-
-			</a>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-body">
-			<a th:href="@{/topo/myTopo}"
-			   class="btn btn-info btn-sm">
-				Mes Topos Empruntés
 
 			</a>
 		</div>

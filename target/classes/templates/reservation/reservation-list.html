@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<div th:replace="fragments/header :: header">...</div>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Reservation</title>
+</head>
+<body>
+<div class ="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Identifiant du Topo</th>
+                    <th>Nom du Topo</th>
+                    <th>Disponibilite</th>
+                    <th>Region</th>
+                    <th>Country</th>
+                    <th>Date de Parution</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempTopo : ${topos}" scope="col">
+                    <td th:text="${tempTopo.id}"/>
+                    <td th:text="${tempTopo.nameTopo}" />
+                    <td th:text="${tempTopo.topoStatus}" />
+                    <td th:text="${tempTopo.region}"/>
+                    <td th:text="${tempTopo.country}"/>
+                    <td th:text="${tempTopo.releaseDate}"/>
+
+                    <td>
+                        <!-- Add "update" button/link -->
+                        <a th:href="@{/topo/detail(id=${tempTopo.id})}"
+                           class="btn btn-info btn-sm">
+                            Detail
+
+                        </a>
+                        <a th:href="@{/reservations/confirmReservation(id=${tempTopo.id})}"
+                           class="btn btn-success btn-sm" >
+                            Reserver
+                        </a>
+                </tr>
+
+                </tbody>
+            </table>
+            <a onclick="history.back()"
+               class="btn btn-outline-dark mb-3  btn-sm">
+                Return
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

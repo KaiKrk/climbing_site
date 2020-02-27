@@ -1,45 +1,51 @@
 package oc.projet.p6.Service;
 
 import oc.projet.p6.Dao.SectorRepository;
-import oc.projet.p6.Entity.Member;
 import oc.projet.p6.Entity.Sector;
+import oc.projet.p6.Entity.Topo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
+/**
+ * Classe Service des secteurs
+ */
 @Service
 public class SectorServiceImpl implements SectorService{
+
     @Autowired
     private SectorRepository sectorRepository;
+
+    /**
+     * methode qui retourne un secteur selon son id
+     * @param theId
+     * @return
+     */
     @Override
     public Sector findById(int theId) {
-        Optional<Sector> result = sectorRepository.findById(theId);
-
-       Sector theSector = null;
-
-        if (result.isPresent()) {
-            theSector = result.get();
-        }
-        else {
-            // we didn't find the employee
-            throw new RuntimeException("Did not find sector id - " + theId);
-        }
-
+        Sector theSector = sectorRepository.findById(theId);
         return theSector;
     }
 
+    /**
+     * methode qui insert ou update un secteur en bdd
+     * @param theSector
+     */
     @Override
     public void save(Sector theSector) {
         sectorRepository.save(theSector);
     }
 
-
-
     @Override
-    public void deleteById(int theId) {
-        sectorRepository.deleteById(theId);
+    public boolean isConnectedMemberTheAuthor(int sectorId) {
+        Sector secteur = sectorRepository.findById(sectorId);
+        if (secteur.getTopo().getMember().getEmail().equals(SecurityContextHolder.getContext().getAuthentication().getName())){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

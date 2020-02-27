@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="www.thymeleaf.org">
-
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="www.thymeleaf.org">
 <div th:replace="fragments/header :: header">...</div>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Contact</title>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link href="..\static\style.css" rel="stylesheet" type="text/css">
+    <title>Membres</title>
 </head>
 <body>
-<div class ="container">
-    <div class="card">
+<div class="container">
+    <div class="card mt-5">
         <div class="card-body">
-            <a th:href="@{/members/showFormForAdd}"
-               class="btn btn-outline-dark mb-3  btn-lg">
-                Add Member
-            </a>
-
-
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -28,35 +24,35 @@
                     <th>Email</th>
                     <th>Pays</th>
                     <th>Pseudo</th>
-                    <th>Actions</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')">Actions</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr th:each="tempMember : ${members}" scope="col">
-                    <td th:text="${tempMember.id}" />
-                    <td th:text="${tempMember.name}" />
+                <tr scope="col" th:each="tempMember : ${members}">
+                    <td th:text="${tempMember.id}"/>
+                    <td th:text="${tempMember.name}"/>
                     <td th:text="${tempMember.surname}"/>
-                    <td th:text="${tempMember.email}" />
-                    <td th:text="${tempMember.country}" />
-                    <td th:text="${tempMember.pseudo}" />
+                    <td th:text="${tempMember.email}"/>
+                    <td th:text="${tempMember.country}"/>
+                    <td th:text="${tempMember.pseudo}"/>
 
-                    <td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')">
                         <!-- Add "update" button/link -->
-                        <a th:href="@{/members/showFormForUpdate(id=${tempMember.id})}"
-                           class="btn btn-info btn-sm">
+                        <a class="btn btn-info btn-sm"
+                           th:href="@{/members/showFormForUpdate(id=${tempMember.id})}">
                             Update
                         </a>
 
                         <!-- Add "delete" button/link -->
-                        <a th:href="@{/members/delete(id=${tempMember.id})}"
-                           class="btn btn-danger btn-sm"
-                           onclick="if (!(confirm('Are you sure you want to delete this member?'))) return false">
+                        <a class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Are you sure you want to delete this member?'))) return false"
+                           th:href="@{/members/delete(id=${tempMember.id})}">
                             Delete
                         </a>
 
-                        <a th:href="@{/members/showFormForPromote(id=${tempMember.id})}"
-                           class="btn btn-success btn-sm" >Promote
+                        <a class="btn btn-success btn-sm"
+                           th:href="@{/members/showFormForPromote(id=${tempMember.id})}">Promote
                         </a>
 
                     </td>
@@ -66,18 +62,21 @@
                 </tr>
                 </tbody>
             </table>
-            <a th:href="@{/}"
-               class="btn btn-outline-dark mb-3  btn-sm">
+            <a class="btn btn-outline-dark mb-3  btn-sm"
+               th:href="@{/}">
                 Return
             </a>
         </div>
     </div>
-
-
-
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
