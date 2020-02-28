@@ -6,11 +6,7 @@ import java.util.List;
 
 public interface WayService {
 
-    public Way findById(int theId);
-
     public void save(Way theWay);
 
-    public void deleteById(int theId);
 
-    boolean isConnectedMemberTheAuthor(int id);
 }

@@ -15,29 +15,10 @@ public class WayServiceImpl implements WayService {
     @Autowired
     private WayRepository wayRepository;
 
-
-    @Override
-    public Way findById(int theId) {
-        return null;// return a list way according to topo_id
-    }
-
     @Override
     public void save(Way theWay) {
     wayRepository.save(theWay);
     }
 
-    @Override
-    public void deleteById(int theId) { wayRepository.deleteById(theId);
 
-    }
-
-    @Override
-    public boolean isConnectedMemberTheAuthor(int id) {
-        Way way = wayRepository.findById(id);
-        if (way.getSector().getTopo().getMember().getEmail().equals(SecurityContextHolder.getContext().getAuthentication().getName())){
-            return true;
-        }else {
-            return false;
-        }
-    }
 }

@@ -1,6 +1,5 @@
 package oc.projet.p6.Service;
 
-import oc.projet.p6.Entity.Member;
 import oc.projet.p6.Entity.Topo;
 
 import java.util.List;
@@ -8,20 +7,19 @@ import java.util.List;
 public interface TopoService {
 
 
+    List<Topo> findAll();
 
-    public List<Topo> findAll();
+    Topo findById(int theId);
 
-    public Topo findById(int theId);
+    void save(Topo theTopo);
 
-    public void save(Topo theTopo);
+    List<Topo> findAllByMemberId(int userId);
 
-    public List<Topo> findAllByMemberId(int userId);
+    List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region);
 
-    public List<Topo> findAllByCountryIgnoreCaseContainingAndRegionIgnoreCaseContaining(String country, String region);
+    List<Topo> findAllByTopoStatus(String status);
 
-    public List<Topo> findAllByTopoStatus(String status);
-
-    public void changeAvaibility (Topo topo, String status);
+    void changeAvaibility(Topo topo, String status);
 
     boolean isConnectedMemberTheAuthor(int topoId);
 }

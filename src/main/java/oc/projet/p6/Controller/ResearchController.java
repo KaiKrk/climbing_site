@@ -1,7 +1,5 @@
 package oc.projet.p6.Controller;
 
-import oc.projet.p6.Dao.TopoRepository;
-import oc.projet.p6.Entity.Member;
 import oc.projet.p6.Entity.Research;
 import oc.projet.p6.Entity.Topo;
 import oc.projet.p6.Service.TopoService;

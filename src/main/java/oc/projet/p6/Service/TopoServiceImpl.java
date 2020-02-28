@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Classe Service des Topos

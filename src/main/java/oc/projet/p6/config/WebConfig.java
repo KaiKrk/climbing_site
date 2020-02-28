@@ -14,17 +14,10 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 @Configuration
 public class WebConfig implements WebMvcConfigurer
 {   
-	
+
 	@Autowired
     private MessageSource messageSource;
 
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry)
-	{
-		registry.addViewController("/").setViewName("welcome");
-        registry.addViewController("/admin/home").setViewName("adminhome");
-	}
-	
     @Override
     public Validator getValidator() {
         LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
