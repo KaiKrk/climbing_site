@@ -9,13 +9,11 @@ import java.util.List;
 
 public interface MemberService {
 
-	public List<Member> findAll();
+	List<Member> findAll();
 	
-	public Member findById(int theId);
+	Member findById(int theId);
 
-	public void save(Member theMember);
-
-	public void deleteById(int theId);
+	void save(Member theMember);
 
 	Member findMemberByEmail();
 }

@@ -79,7 +79,6 @@ public class ReservationController {
         reservation.setOwnerMember(theTopo.getMember());
         System.out.println("avant le save " + reservation.toString());
         reservationService.save(reservation);
-       //  Topo theTopo = reservation.getTopo();
         topoService.changeAvaibility(theTopo,topoStatut);
         topoService.save(theTopo);
         logger.info("Reservation on Topo :" +reservation.getTopo().getNameTopo()+ " by Member : "+ reservation.getBorrowingMember().getName() );

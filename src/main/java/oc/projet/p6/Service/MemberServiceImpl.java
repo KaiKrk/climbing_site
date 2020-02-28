@@ -56,15 +56,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	/**
-	 * methode qui supprime un membre de la bdd
-	 * @param theId
-	 */
-	@Override
-	public void deleteById(int theId) {
-		memberRepository.deleteById(theId);
-	}
-
-	/**
 	 * methode qui retourne un membre selon son email
 	 * @return un membre
 	 */

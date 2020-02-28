@@ -18,7 +18,7 @@ import java.util.List;
  * Classe Controller des membres
  */
 @Controller
-@RequestMapping("/members") // "/admin/members"
+@RequestMapping("/members")
 public class MemberController {
 
     Logger logger = LoggerFactory.getLogger(WelcomeController.class);

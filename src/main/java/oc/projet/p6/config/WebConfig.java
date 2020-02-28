@@ -14,20 +14,19 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 @Configuration
 public class WebConfig implements WebMvcConfigurer
 {   
-
-	@Autowired
-    private MessageSource messageSource;
-
-    @Override
-    public Validator getValidator() {
-        LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
-        factory.setValidationMessageSource(messageSource);
-        return factory;
-    }
-	
+//
+//	@Autowired
+//    private MessageSource messageSource;
+//
+//    @Override
+//    public Validator getValidator() {
+//        LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
+//        factory.setValidationMessageSource(messageSource);
+//        return factory;
+//    }
+//
     @Bean
 	public SpringSecurityDialect securityDialect() {
 	    return new SpringSecurityDialect();
 	}
-
 }

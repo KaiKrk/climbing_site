@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface WayService {
 
-    public void save(Way theWay);
+    void save(Way theWay);
 
 
 }

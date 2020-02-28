@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReservationService {
 
-    public void save(Reservation reservation);
+    void save(Reservation reservation);
 
     List<Reservation> findAllByOwnerMemberAndReservationStatusIgnoreCaseContaining(Member owner, String reservationId);
 
@@ -16,5 +16,5 @@ public interface ReservationService {
 
     Reservation findById(int reservationId);
 
-    public void changeStatus(Reservation reservation, String status);
+    void changeStatus(Reservation reservation, String status);
 }

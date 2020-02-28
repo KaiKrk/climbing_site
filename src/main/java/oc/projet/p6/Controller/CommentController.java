@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * Controller de l'entite comment
  */
 @Controller
-@RequestMapping("comments")
+@RequestMapping("/comments")
 public class CommentController {
     Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
@@ -25,7 +25,7 @@ public class CommentController {
      * @param comment
      * @return
      */
-    @PostMapping("save")
+    @PostMapping("/save")
     public String save(@ModelAttribute Comment comment ){
         commentService.save(comment);
         int id = comment.getTopo().getId();
@@ -41,11 +41,17 @@ public class CommentController {
      * @param commentId
      * @return
      */
-    @GetMapping("update")
+    @GetMapping("/update")
     public String update(Model theModel, int commentId){
        Comment comment =  commentService.findById(commentId);
        theModel.addAttribute("comment", comment);
        return "forms/comment-form";
+    }
+
+    @GetMapping("/delete")
+    public String  delete(int id, int topoId){
+        commentService.deleteById(id);
+        return "redirect:/topo/detail?id=" + topoId;
     }
 
 }
