@@ -22,6 +22,11 @@ public class WelcomeController {
         return "welcome";
     }
 
+    @GetMapping("")
+    public String root() {
+        return "welcome";
+    }
+
     @GetMapping("/home")
     public String home(Model theModel){
         Member theMember = memberService.findMemberByEmail();
